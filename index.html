@@ -350,10 +350,7 @@
             body: JSON.stringify({
                 plan: plan,
                 customerEmail: 'customer@example.com',
-                priceId: plan === 'starter' ? 'price_starter' : 
-        plan === 'professional' ? 'price_professional' : 'price_enterprise'
-            })
-        });
+                
 
         const data = await response.json();
         
