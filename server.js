@@ -6,6 +6,8 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const STARTER_PRICE_ID = process.env.STRIPE_STARTER_PRICE_ID;
+const PROFESSIONAL_PRICE_ID = process.env.STRIPE_PROFESSIONAL_PRICE_ID;
 
 // Middleware
 app.use(cors());
@@ -527,6 +529,38 @@ app.get('/api/syncs', (req, res) => {
     running: Object.values(activeSyncs).filter(s => s.status === 'running').length,
     totalRecords: Object.values(activeSyncs).reduce((sum, sync) => sum + sync.recordsSynced, 0)
   });
+});
+app.post('/api/subscribe', async (req, res) => {
+  try {
+    const { plan } = req.query; // From ?plan=starter or ?plan=professional
+    let priceId;
+
+    if (plan === 'starter') {
+      priceId = STARTER_PRICE_ID;
+    } else if (plan === 'professional') {
+      priceId = PROFESSIONAL_PRICE_ID;
+    } else {
+      return res.status(400).json({ error: 'Invalid plan selected.' });
+    }
+
+    const session = await stripe.checkout.sessions.create({
+      mode: 'subscription',
+      payment_method_types: ['card'],
+      line_items: [
+        {
+          price: priceId,
+          quantity: 1
+        }
+      ],
+      success_url: 'https://getconnectflows.com/success',
+      cancel_url: 'https://getconnectflows.com/cancel'
+    });
+
+    res.json({ url: session.url });
+  } catch (err) {
+    console.error('Stripe error:', err);
+    res.status(500).json({ error: 'Stripe checkout session failed.' });
+  }
 });
 
 // Start server
