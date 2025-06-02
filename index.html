@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConnectFlow – PieSync Alternative</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .gradient-bg {
+      background: linear-gradient(to right, #1e3a8a, #1d4ed8, #3b82f6);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased bg-white">
+
+<section class="gradient-bg pt-24 pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="bg-red-100 text-red-800 px-4 py-2 rounded-full inline-block mb-8">
+            🚨 PieSync Alternative - Limited Time: 50% Off for Refugees
+        </div>
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+            Stop Paying $5K-10K to <br>
+            <span class="text-yellow-300">Sync Consultants</span>
+        </h1>
+        <p class="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+            Automated Salesforce ↔ HubSpot sync for $297/month. Eliminate manual data entry, prevent lead loss, and keep your sales and marketing teams aligned.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <button onclick="bookDemo()" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition">
+                📅 Book Free Demo
+            </button>
+            <button onclick="scrollToFeatures()" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition">
+                See How It Works
+            </button>
+        </div>
+        <div class="text-white/80 text-sm">
+            ✅ Setup in 15 minutes &nbsp;&nbsp; ✅ 30-day money-back guarantee &nbsp;&nbsp; ✅ No contracts
+        </div>
+    </div>
+</section>
+
+<!-- Problem Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Are You Tired Of...</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center p-8 bg-red-50 rounded-xl">
+                <div class="text-4xl mb-4">😤</div>
+                <h3 class="text-xl font-semibold mb-3 text-gray-900">Manual Data Entry</h3>
+                <p class="text-gray-600">Spending 10+ hours per week copying contacts between Salesforce and HubSpot</p>
+            </div>
+            <div class="text-center p-8 bg-red-50 rounded-xl">
+                <div class="text-4xl mb-4">💸</div>
+                <h3 class="text-xl font-semibold mb-3 text-gray-900">Expensive Consultants</h3>
+                <p class="text-gray-600">Paying $5K-10K upfront plus ongoing fees for basic integrations</p>
+            </div>
+            <div class="text-center p-8 bg-red-50 rounded-xl">
+                <div class="text-4xl mb-4">🕳️</div>
+                <h3 class="text-xl font-semibold mb-3 text-gray-900">Lost Leads</h3>
+                <p class="text-gray-600">Leads falling through cracks because your systems don't talk to each other</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solution Section -->
+<section id="features" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">ConnectFlow Eliminates Integration Headaches</h2>
+            <p class="text-xl text-gray-600">The PieSync replacement that actually works</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-green-100 p-3 rounded-lg">
+                            <div class="text-green-600 text-xl">⚡</div>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">Real-Time Bidirectional Sync</h3>
+                            <p class="text-gray-600">Updates in Salesforce instantly appear in HubSpot and vice versa</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-green-100 p-3 rounded-lg">
+                            <div class="text-green-600 text-xl">🎯</div>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">Smart Duplicate Detection</h3>
+                            <p class="text-gray-600">AI-powered matching prevents duplicate contacts and data conflicts</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-green-100 p-3 rounded-lg">
+                            <div class="text-green-600 text-xl">🛠️</div>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">Custom Field Mapping</h3>
+                            <p class="text-gray-600">Map any field between platforms with our visual interface</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-green-100 p-3 rounded-lg">
+                            <div class="text-green-600 text-xl">📊</div>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">Sync Monitoring</h3>
+                            <p class="text-gray-600">Real-time dashboard shows sync status and catches errors instantly</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold mb-4">ROI Calculator</h3>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex justify-between">
+                        <span>Hours saved per week:</span>
+                        <span class="font-bold">15 hours</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Cost per hour:</span>
+                        <span class="font-bold">$50</span>
+                    </div>
+                    <hr>
+                    <div class="flex justify-between text-lg">
+                        <span>Monthly savings:</span>
+                        <span class="font-bold text-green-600">$3,000</span>
+                    </div>
+                    <div class="flex justify-between text-lg">
+                        <span>ConnectFlow cost:</span>
+                        <span class="font-bold">$297</span>
+                    </div>
+                    <hr>
+                    <div class="flex justify-between text-xl">
+                        <span>Net savings:</span>
+                        <span class="font-bold text-green-600">$2,703/mo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Social Proof -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Trusted by Growing Companies</h2>
+            <p class="text-gray-600">Join 50+ companies who switched from broken integrations</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-gray-50 p-6 rounded-xl">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-blue-600 font-bold">JS</span>
+                    </div>
+                    <div>
+                        <div class="font-semibold">Sarah Johnson</div>
+                        <div class="text-sm text-gray-600">VP Sales, TechCorp</div>
+                    </div>
+                </div>
+                <p class="text-gray-700">"ConnectFlow saved us from data chaos after PieSync shutdown. Setup took 10 minutes, now we save 20 hours per week."</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-xl">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-green-600 font-bold">MC</span>
+                    </div>
+                    <div>
+                        <div class="font-semibold">Mike Chen</div>
+                        <div class="text-sm text-gray-600">Marketing Director, GrowthLab</div>
+                    </div>
+                </div>
+                <p class="text-gray-700">"Finally! A sync solution that actually works. Our marketing and sales teams are finally aligned."</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-xl">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-purple-600 font-bold">EM</span>
+                    </div>
+                    <div>
+                        <div class="font-semibold">Emily Rodriguez</div>
+                        <div class="text-sm text-gray-600">Operations Manager, ScaleUp Inc</div>
+                    </div>
+                </div>
+                <p class="text-gray-700">"ROI was immediate. We went from paying $8K to consultants to $297/month with better results."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section id="pricing" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
+            <p class="text-xl text-gray-600">No hidden fees. Cancel anytime.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Starter -->
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold mb-4">Starter</h3>
+                    <div class="text-4xl font-bold mb-2">$197<span class="text-lg text-gray-600">/mo</span></div>
+                    <p class="text-gray-600 mb-6">Perfect for small teams</p>
+                </div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Up to 5,000 contacts</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Bidirectional sync</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Basic field mapping</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Email support</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> 30-day guarantee</li>
+                </ul>
+                <button onclick="startTrial('starter')" class="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition">
+                    Start Free Trial
+                </button>
+            </div>
+
+            <!-- Professional (Most Popular) -->
+            <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-blue-500 relative">
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span class="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">Most Popular</span>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold mb-4">Professional</h3>
+                    <div class="text-4xl font-bold mb-2">$397<span class="text-lg text-gray-600">/mo</span></div>
+                    <p class="text-gray-600 mb-6">For growing businesses</p>
+                </div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Up to 25,000 contacts</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Advanced field mapping</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Real-time webhooks</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Priority support</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Custom integrations</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Sync analytics</li>
+                </ul>
+                <button onclick="startTrial('professional')" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                    Start Free Trial
+                </button>
+            </div>
+
+            <!-- Enterprise -->
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold mb-4">Enterprise</h3>
+                    <div class="text-4xl font-bold mb-2">$797<span class="text-lg text-gray-600">/mo</span></div>
+                    <p class="text-gray-600 mb-6">For large organizations</p>
+                </div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Unlimited contacts</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> White-label options</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Dedicated support</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> SLA guarantees</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Custom development</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Multi-instance sync</li>
+                </ul>
+                <button onclick="contactSales()" class="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition">
+                    Contact Sales
+                </button>
+            </div>
+        </div>
+        <div class="text-center mt-12">
+            <div class="bg-yellow-100 text-yellow-800 px-6 py-3 rounded-lg inline-block">
+                🎉 PieSync Refugees: Get 50% off for 6 months with code PIESYNC50
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section id="demo" class="py-20 gradient-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl font-bold text-white mb-6">Ready to Eliminate Manual Data Entry Forever?</h2>
+        <p class="text-xl text-white/90 mb-8">Join the ConnectFlow revolution. Setup takes 15 minutes.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button onclick="bookDemo()" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition">
+                📅 Book Your Free Demo
+            </button>
+            <button onclick="startTrial('professional')" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition">
+                Start Free Trial
+            </button>
+        </div>
+        <p class="text-white/80 text-sm mt-6">No credit card required • 30-day money-back guarantee</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8">
+            <div>
+                <div class="text-2xl font-bold mb-4">ConnectFlow</div>
+                <p class="text-gray-400">The Salesforce ↔ HubSpot sync solution that actually works.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Product</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#features" class="hover:text-white">Features</a></li>
+                    <li><a href="#pricing" class="hover:text-white">Pricing</a></li>
+                    <li><a href="#" class="hover:text-white">Documentation</a></li>
+                    <li><a href="#" class="hover:text-white">API</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Support</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#" class="hover:text-white">Help Center</a></li>
+                    <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-white">Status</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Company</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#" class="hover:text-white">About</a></li>
+                    <li><a href="#" class="hover:text-white">Blog</a></li>
+                    <li><a href="#" class="hover:text-white">Privacy</a></li>
+                    <li><a href="#" class="hover:text-white">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2025 ConnectFlow by Algo Mind. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function scrollToFeatures() {
+        document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function bookDemo() {
+        // Integrate with Calendly
+        window.open('https://calendly.com/your-calendly-link', '_blank');
+    }
+
+    function startTrial(plan) {
+        // Integrate with Stripe Checkout
+        alert(`Starting ${plan} trial - Integrate with Stripe here`);
+    }
+
+    function contactSales() {
+        window.open('mailto:sales@connectflow.com', '_blank');
+    }
+
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
