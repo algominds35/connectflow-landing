@@ -34,7 +34,17 @@ app.get('/health', (req, res) => {
 // Create Stripe Checkout Session
 app.post('/create-checkout-session', async (req, res) => {
   try {
-    const { priceId, customerEmail, plan } = req.body;
+   const { customerEmail, plan } = req.body;
+
+// Get the correct Price ID based on plan
+let priceId;
+if (plan === 'starter') {
+  priceId = process.env.STRIPE_STARTER_PRICE_ID;
+} else if (plan === 'professional') {
+  priceId = process.env.STRIPE_PROFESSIONAL_PRICE_ID;
+} else {
+  return res.status(400).json({ error: 'Invalid plan' });
+}
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
