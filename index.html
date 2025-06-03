@@ -340,30 +340,32 @@
         window.open('https://calendly.com/your-calendly-link', '_blank');
     }
 
-   async function startTrial(plan) {
-    try {
-        const response = await fetch('https://connectflow-landing-production.up.railway.app/create-checkout-session', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                plan: plan,
-                customerEmail: 'customer@example.com',
-                
+    async function startTrial(plan) {
+        try {
+            const response = await fetch('https://connectflow-landing-production.up.railway.app/create-checkout-session', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    plan: plan,
+                    customerEmail: 'customer@example.com'
+                })
+            });
 
-        const data = await response.json();
-        
-        if (data.url) {
-            window.location.href = data.url;
-        } else {
-            alert('Error creating checkout session');
+            const data = await response.json();
+            
+            if (data.url) {
+                window.location.href = data.url;
+            } else {
+                alert('Error creating checkout session');
+            }
+        } catch (error) {
+            console.error('Payment error:', error);
+            alert('Payment system temporarily unavailable');
         }
-    } catch (error) {
-        console.error('Payment error:', error);
-        alert('Payment system temporarily unavailable');
     }
-}
+
     function contactSales() {
         window.open('mailto:sales@connectflow.com', '_blank');
     }
@@ -378,3 +380,6 @@
         });
     });
 </script>
+
+</body>
+</html>
