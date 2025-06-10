@@ -29,7 +29,8 @@ app.get('/', (req, res) => {
 
 app.get('/health', (req, res) => {
   res.json({ status: 'healthy', timestamp: new Date().toISOString() });
-}); 
+});
+
 // Lemon Squeezy Billing Routes
 
 // Pricing page route
@@ -261,110 +262,101 @@ app.post('/webhooks/lemonsqueezy', express.raw({ type: 'application/json' }), as
       .digest('hex');
 
     if (signature !== expectedSignature) {
-      console.error('Invalid webhook signat
+      console.error('Invalid webhook signature');
+      return res.status(400).send('Invalid signature');
+    }
 
- 
-  try {
-   const { customerEmail, plan } = req.body;
+    const event = JSON.parse(payload);
+    const eventType = event.meta.event_name;
+    const data = event.data;
 
-// Get the correct Price ID based on plan
-let priceId;
-if (plan === 'starter') {
-  priceId = process.env.STRIPE_STARTER_PRICE_ID;
-} else if (plan === 'professional') {
-  priceId = process.env.STRIPE_PROFESSIONAL_PRICE_ID;
-} else {
-  return res.status(400).json({ error: 'Invalid plan' });
-}
+    console.log('Webhook received:', eventType);
 
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
-      customer_email: customerEmail,
-      line_items: [
-        {
-          price: priceId,
-          quantity: 1,
-        },
-      ],
-      mode: 'subscription',
-      success_url: `${process.env.SERVER_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.SERVER_URL}/cancel`,
+    switch (eventType) {
+      case 'order_created':
+        console.log('Order created:', data.id);
+        // Create customer record from order
+        if (data.attributes.customer_email) {
+          const customerId = data.id;
+          customers[customerId] = {
+            id: customerId,
+            email: data.attributes.customer_email,
+            plan: data.attributes.custom?.plan || 'starter',
+            status: 'active',
+            createdAt: new Date().toISOString(),
+            onboarded: false
+          };
+        }
+        break;
 
-      metadata: {
-        plan: plan,
-        customerEmail: customerEmail
-      }
-    });
+      case 'subscription_created':
+        console.log('Subscription created:', data.id);
+        // Handle subscription creation
+        break;
 
-    res.json({ sessionId: session.id, url: session.url });
+      case 'subscription_updated':
+        console.log('Subscription updated:', data.id);
+        // Handle subscription changes
+        break;
+
+      case 'subscription_cancelled':
+        console.log('Subscription cancelled:', data.id);
+        // Handle cancellation
+        break;
+
+      case 'subscription_resumed':
+        console.log('Subscription resumed:', data.id);
+        // Handle resumption
+        break;
+    }
+
+    res.status(200).send('OK');
   } catch (error) {
-    console.error('Error creating checkout session:', error);
-    res.status(500).json({ error: 'Failed to create checkout session' });
+    console.error('Webhook error:', error);
+    res.status(500).send('Webhook error');
   }
 });
 
-// Success page
-app.get('/success', async (req, res) => {
-  const { session_id } = req.query;
+// Success page (updated for Lemon Squeezy)
+app.get('/success', (req, res) => {
+  const { order_id } = req.query;
   
-  try {
-    const session = await stripe.checkout.sessions.retrieve(session_id);
-    const customerId = session.customer;
-    const customerEmail = session.customer_email || session.metadata.customerEmail;
-    const plan = session.metadata.plan;
-
-    // Create customer record
-    const customer = {
-      id: customerId,
-      email: customerEmail,
-      plan: plan,
-      status: 'active',
-      createdAt: new Date().toISOString(),
-      onboarded: false
-    };
-
-    customers[customerId] = customer;
-
-    res.send(`
-      <!DOCTYPE html>
-      <html>
-      <head>
-        <title>Welcome to ConnectFlow!</title>
-        <style>
-          body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
-          .success { background: #d4edda; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
-          .button { background: #007bff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; }
-          .steps { background: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0; }
-        </style>
-      </head>
-      <body>
-        <div class="success">
-          <h2>🎉 Payment Successful!</h2>
-          <p>Welcome to ConnectFlow ${plan} plan!</p>
-          <p>Customer ID: ${customerId}</p>
-        </div>
-        
-        <div class="steps">
-          <h3>What happens next:</h3>
-          <ol>
-            <li>Check your email for onboarding instructions</li>
-            <li>Connect your Salesforce and HubSpot accounts</li>
-            <li>Start syncing your data automatically</li>
-          </ol>
-        </div>
-        
-        <a href="/onboard/${customerId}" class="button">Start Onboarding →</a>
-        
-        <p style="margin-top: 30px; color: #666;">
-          Questions? Contact support at hello@getconnectflows.com
-        </p>
-      </body>
-      </html>
-    `);
-  } catch (error) {
-    console.error('Error handling success:', error);
-    res.status(500).send('Error processing your request');
-  }
+  res.send(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Welcome to ConnectFlow!</title>
+      <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+        .success { background: #d4edda; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
+        .button { background: #007bff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; }
+        .steps { background: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0; }
+      </style>
+    </head>
+    <body>
+      <div class="success">
+        <h2>🎉 Payment Successful!</h2>
+        <p>Welcome to ConnectFlows!</p>
+        <p>Order ID: ${order_id}</p>
+      </div>
+      
+      <div class="steps">
+        <h3>What happens next:</h3>
+        <ol>
+          <li>Check your email for onboarding instructions</li>
+          <li>Connect your Salesforce and HubSpot accounts</li>
+          <li>Start syncing your data automatically</li>
+        </ol>
+      </div>
+      
+      <a href="https://rapid-mailbox-production.up.railway.app/demo" class="button">View Demo →</a>
+      
+      <p style="margin-top: 30px; color: #666;">
+        Questions? Contact support at hello@getconnectflows.com
+      </p>
+    </body>
+    </html>
+  `);
 });
 
 // Cancel page
@@ -455,7 +447,6 @@ app.get('/onboard/:customerId', (req, res) => {
 // OAuth routes (simplified for demo)
 app.get('/auth/salesforce', (req, res) => {
   const { customer } = req.query;
-  // In production, implement proper OAuth flow
   res.send(`
     <h2>Salesforce OAuth</h2>
     <p>In production, this would redirect to Salesforce OAuth.</p>
@@ -465,7 +456,6 @@ app.get('/auth/salesforce', (req, res) => {
 
 app.get('/auth/hubspot', (req, res) => {
   const { customer } = req.query;
-  // In production, implement proper OAuth flow
   res.send(`
     <h2>HubSpot OAuth</h2>
     <p>In production, this would redirect to HubSpot OAuth.</p>
@@ -481,7 +471,7 @@ app.get('/oauth/callback/salesforce', (req, res) => {
     customers[customer].salesforce = {
       connected: true,
       connectedAt: new Date().toISOString(),
-      accessToken: 'sf_' + code // In production, exchange for real token
+      accessToken: 'sf_' + code
     };
   }
   
@@ -495,7 +485,7 @@ app.get('/oauth/callback/hubspot', (req, res) => {
     customers[customer].hubspot = {
       connected: true,
       connectedAt: new Date().toISOString(),
-      accessToken: 'hs_' + code // In production, exchange for real token
+      accessToken: 'hs_' + code
     };
   }
   
@@ -702,58 +692,6 @@ app.get('/dashboard/:customerId', (req, res) => {
   `);
 });
 
-// Stripe webhook handler
-app.post('/stripe-webhook', (req, res) => {
-  const sig = req.headers['stripe-signature'];
-  let event;
-
-  try {
-    event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
-  } catch (err) {
-    console.error('Webhook signature verification failed:', err);
-    return res.status(400).send(`Webhook Error: ${err.message}`);
-  }
-
-  // Handle the event
-  switch (event.type) {
-    case 'checkout.session.completed':
-      const session = event.data.object;
-      console.log('Checkout session completed:', session.id);
-      
-      // Customer is automatically created in the success handler
-      break;
-
-    case 'invoice.payment_succeeded':
-      const invoice = event.data.object;
-      console.log('Payment succeeded for customer:', invoice.customer);
-      break;
-
-    case 'customer.subscription.deleted':
-      const subscription = event.data.object;
-      const customerId = subscription.customer;
-      
-      // Deactivate customer
-      if (customers[customerId]) {
-        customers[customerId].status = 'cancelled';
-        customers[customerId].cancelledAt = new Date().toISOString();
-      }
-      
-      // Stop sync
-      if (activeSyncs[customerId]) {
-        activeSyncs[customerId].status = 'stopped';
-        activeSyncs[customerId].stoppedAt = new Date().toISOString();
-      }
-      
-      console.log('Subscription cancelled for customer:', customerId);
-      break;
-
-    default:
-      console.log(`Unhandled event type ${event.type}`);
-  }
-
-  res.json({ received: true });
-});
-
 // API endpoints for website integration
 app.get('/api/customers', (req, res) => {
   res.json({
@@ -773,9 +711,10 @@ app.get('/api/syncs', (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`🚀 SF-HubSpot Sync Server Starting...`);
+  console.log(`🚀 ConnectFlows Server Starting...`);
   console.log(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
   console.log(`🔗 Server URL: http://localhost:${PORT}`);
   console.log(`🏥 Health Check: http://localhost:${PORT}/health`);
+  console.log(`💰 Pricing Page: http://localhost:${PORT}/pricing`);
   console.log(`✅ Server ready for connections!`);
 });
