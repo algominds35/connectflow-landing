@@ -334,10 +334,11 @@
                         <span>30-day guarantee</span>
                     </li>
                 </ul>
-                <a href="https://rapid-mailbox-production.up.railway.app/signup"
-                   class="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition inline-block text-center">
-                    Start Free Trial
-                </a>
+               <button
+  class="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition inline-block text-center start-trial-btn"
+  data-plan="starter">
+  Start Free Trial
+</button>
             </div>
 
             <!-- Professional Plan (Most Popular) -->
@@ -379,10 +380,11 @@
                         <span>Sync analytics</span>
                     </li>
                 </ul>
-                <a href="https://rapid-mailbox-production.up.railway.app/signup"
-                   class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition inline-block text-center">
-                    Start Free Trial
-                </a>
+                <button
+  class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition inline-block text-center start-trial-btn"
+  data-plan="professional">
+  Start Free Trial
+</button>
             </div>
 
             <!-- Enterprise Plan -->
@@ -536,7 +538,6 @@
         </div>
     </div>
 </footer>
-
 <script>
     // ROI Calculator
     function calculateSavings() {
@@ -570,4 +571,55 @@
         counters.forEach(counter => {
             const target = parseInt(counter.textContent);
             const increment = target / 100;
-            let current
+            let current = 0; // Initialize 'current'
+            const interval = setInterval(() => {
+                if (current < target) {
+                    current += increment;
+                    counter.textContent = Math.round(current) + (counter.textContent.includes('+') ? '+' : '');
+                } else {
+                    counter.textContent = target + (counter.textContent.includes('+') ? '+' : '');
+                    clearInterval(interval);
+                }
+            }, 20); // Adjust speed if needed
+        });
+    }
+    // Initialize counter animation
+    animateCounters();
+</script>
+
+<!-- New script for pricing buttons -->
+<script>
+document.querySelectorAll('.start-trial-btn').forEach(btn => {
+  btn.addEventListener('click', async function() {
+    const plan = this.getAttribute('data-plan');
+    const originalText = this.textContent;
+    this.textContent = 'Loading...';
+    this.disabled = true;
+    try {
+      const res = await fetch('/create-checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ plan })
+      });
+      const data = await res.json();
+      if (data.checkoutUrl) {
+        window.location.href = data.checkoutUrl;
+      } else {
+        alert('Error creating checkout. Please try again.');
+        this.textContent = originalText;
+        this.disabled = false;
+      }
+    } catch (err) {
+      console.error('Checkout error:', err);
+      alert('Network error. Please try again.');
+      this.textContent = originalText;
+      this.disabled = false;
+    }
+  });
+});
+</script>
+</body>
+</html>
+
+    
+    
