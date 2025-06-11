@@ -66,15 +66,15 @@
         <!-- Trust Indicators -->
         <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto text-white/90 text-center mb-12">
             <div>
-                <div class="text-3xl font-bold counter">1M+</div>
+                <div class="text-3xl font-bold counter text-green-400">1M+</div>
                 <div class="text-sm">Contacts synced monthly</div>
             </div>
             <div>
-                <div class="text-3xl font-bold counter">99.9%</div>
+                <div class="text-3xl font-bold counter text-green-400">99.9%</div>
                 <div class="text-sm">Uptime guarantee</div>
             </div>
             <div>
-                <div class="text-3xl font-bold counter">$2.4M+</div>
+                <div class="text-3xl font-bold counter text-green-400">$2.4M+</div>
                 <div class="text-sm">Saved in consultant fees</div>
             </div>
         </div>
@@ -334,11 +334,10 @@
                         <span>30-day guarantee</span>
                     </li>
                 </ul>
-               <button
-  class="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition inline-block text-center start-trial-btn"
-  data-plan="starter">
-  Start Free Trial
-</button>
+                <a href="https://rapid-mailbox-production.up.railway.app/create-checkout?plan=starter"
+                   class="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition inline-block text-center">
+                   Start Free Trial
+                </a>
             </div>
 
             <!-- Professional Plan (Most Popular) -->
@@ -380,11 +379,10 @@
                         <span>Sync analytics</span>
                     </li>
                 </ul>
-                <button
-  class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition inline-block text-center start-trial-btn"
-  data-plan="professional">
-  Start Free Trial
-</button>
+                <a href="https://rapid-mailbox-production.up.railway.app/create-checkout?plan=professional"
+                   class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition inline-block text-center">
+                   Start Free Trial
+                </a>
             </div>
 
             <!-- Enterprise Plan -->
@@ -507,118 +505,4 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-4 gap-8">
             <div>
-                <div class="text-2xl font-bold mb-4">ConnectFlows</div>
-                <p class="text-gray-400">The Salesforce ↔ HubSpot sync solution that saves companies $100K+ annually.</p>
-            </div>
-            <div>
-                <h4 class="font-semibold mb-4">Product</h4>
-                <ul class="space-y-2 text-gray-400">
-                    <li><a href="#features" class="hover:text-white">Features</a></li>
-                    <li><a href="#pricing" class="hover:text-white">Pricing</a></li>
-                    <li><a href="https://rapid-mailbox-production.up.railway.app/signup" class="hover:text-white">Free Trial</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-semibold mb-4">Support</h4>
-                <ul class="space-y-2 text-gray-400">
-                    <li><a href="mailto:support@getconnectflows.com" class="hover:text-white">Contact Support</a></li>
-                    <li><a href="mailto:sales@getconnectflows.com" class="hover:text-white">Sales</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-semibold mb-4">Company</h4>
-                <ul class="space-y-2 text-gray-400">
-                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-white">Terms of Service</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 ConnectFlows. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
-<script>
-    // ROI Calculator
-    function calculateSavings() {
-        const hours = document.getElementById('hours').value;
-        const monthlyWaste = hours * 4 * 50; // weeks * hourly rate
-        const monthlySavings = monthlyWaste - 197;
-        const roi = Math.round((monthlySavings / 197) * 100);
-        
-        document.getElementById('hoursValue').textContent = hours;
-        document.getElementById('monthlyWaste').textContent = '$' + monthlyWaste.toLocaleString();
-        document.getElementById('monthlySavings').textContent = '$' + monthlySavings.toLocaleString();
-        document.getElementById('roi').textContent = roi + '%';
-    }
-    
-    // Initialize calculator
-    calculateSavings();
-    
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-    
-    // Counter animation
-    function animateCounters() {
-        const counters = document.querySelectorAll('.counter');
-        counters.forEach(counter => {
-            const target = parseInt(counter.textContent);
-            const increment = target / 100;
-            let current = 0; // Initialize 'current'
-            const interval = setInterval(() => {
-                if (current < target) {
-                    current += increment;
-                    counter.textContent = Math.round(current) + (counter.textContent.includes('+') ? '+' : '');
-                } else {
-                    counter.textContent = target + (counter.textContent.includes('+') ? '+' : '');
-                    clearInterval(interval);
-                }
-            }, 20); // Adjust speed if needed
-        });
-    }
-    // Initialize counter animation
-    animateCounters();
-</script>
-
-<!-- New script for pricing buttons -->
-<script>
-document.querySelectorAll('.start-trial-btn').forEach(btn => {
-  btn.addEventListener('click', async function() {
-    const plan = this.getAttribute('data-plan');
-    const originalText = this.textContent;
-    this.textContent = 'Loading...';
-    this.disabled = true;
-    try {
-          const res = await fetch('https://rapid-mailbox-production.up.railway.app/create-checkout', {        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan })
-      });
-      const data = await res.json();
-      if (data.checkoutUrl) {
-        window.location.href = data.checkoutUrl;
-      } else {
-        alert('Error creating checkout. Please try again.');
-        this.textContent = originalText;
-        this.disabled = false;
-      }
-    } catch (err) {
-      console.error('Checkout error:', err);
-      alert('Network error. Please try again.');
-      this.textContent = originalText;
-      this.disabled = false;
-    }
-  });
-});
-</script>
-</body>
-</html>
-
-    
-    
+                <div class="text-2
