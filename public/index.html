@@ -1,44 +1,508 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GetConnectFlows</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      background: #f9f9f9;
-      padding: 2rem;
-    }
-    .container {
-      max-width: 600px;
-      margin: auto;
-    }
-    input, button {
-      padding: 10px;
-      font-size: 1rem;
-      margin-top: 1rem;
-      width: 80%;
-    }
-    footer {
-      margin-top: 2rem;
-      font-size: 0.8rem;
-      color: #777;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlideOps AI - Stop Rebuilding The Same Decks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .gradient-text { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
+        .pulse-glow { animation: pulse-glow 2s infinite; }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(245, 87, 108, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(245, 87, 108, 0.8); }
+        }
+        .typing-animation { 
+            border-right: 2px solid #f5576c; 
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #f5576c; }
+        }
+        .floating { animation: floating 3s ease-in-out infinite; }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
 </head>
-<body>
-  <div class="container">
-    <h1>GetConnectFlows</h1>
-    <p>Something new is coming. Join the waitlist to be the first to know when we launch.</p>
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <input type="email" name="email" placeholder="Enter your email" required /><br/>
-      <button type="submit">Join Waitlist</button>
-    </form>
-    <footer>
-      <a href="/privacy.html">Privacy Policy</a> | <a href="/terms.html">Terms of Service</a><br/>
-      Contact: hello@getconnectflows.com
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur-lg fixed w-full z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold gradient-text">SlideOps AI</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#problem" class="text-gray-600 hover:text-gray-900 transition-colors">Problem</a>
+                    <a href="#solution" class="text-gray-600 hover:text-gray-900 transition-colors">Solution</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-gray-900 transition-colors">Pricing</a>
+                    <button onclick="scrollToSignup()" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all">
+                        Join Waitlist
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="gradient-bg min-h-screen flex flex-col justify-center items-center px-4 pt-20">
+        <div class="max-w-6xl mx-auto text-center text-white">
+            <!-- Social Proof Badge -->
+            <div class="mb-8 floating">
+                <span class="bg-white/20 backdrop-blur-lg px-6 py-3 rounded-full text-sm font-medium border border-white/30">
+                    🚀 Join <span id="signup-counter" class="font-bold">512+</span> professionals getting early access
+                </span>
+            </div>
+            
+            <!-- Main Headline -->
+            <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight">
+                Stop Rebuilding<br/>
+                <span class="gradient-text typing-animation overflow-hidden whitespace-nowrap">The Same Decks</span>
+            </h1>
+            
+            <!-- Subheadline -->
+            <p class="text-xl md:text-3xl mb-8 text-gray-200 max-w-4xl mx-auto leading-relaxed font-light">
+                SlideOps AI turns your messy notes into <strong>structured, client-ready presentations</strong> in minutes. 
+                Built for consultants, PMs, and strategy teams who waste hours in PowerPoint.
+            </p>
+
+            <!-- Pain Point Quote -->
+            <div class="bg-red-500/20 backdrop-blur-lg rounded-2xl p-6 mb-8 max-w-3xl mx-auto border border-red-300/30">
+                <p class="text-lg italic text-red-100 mb-3">
+                    "I'm so over doing slides. It's never ending in consulting. I've forgotten what a deliverable is these days."
+                </p>
+                <p class="text-sm text-red-200">— r/consulting, 321 upvotes</p>
+            </div>
+            
+            <!-- CTA Form -->
+            <div class="bg-white/15 backdrop-blur-lg rounded-3xl p-8 mb-8 max-w-2xl mx-auto border border-white/20">
+                <h3 class="text-2xl font-bold mb-6">Get Early Access</h3>
+                <form id="waitlist-form" class="space-y-4">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input 
+                            type="text" 
+                            placeholder="First Name"
+                            class="w-full px-6 py-4 rounded-xl bg-white/90 text-gray-900 placeholder-gray-500 text-lg focus:outline-none focus:ring-4 focus:ring-pink-300 font-medium"
+                            id="firstName"
+                            required
+                        >
+                        <input 
+                            type="email" 
+                            placeholder="Work Email"
+                            class="w-full px-6 py-4 rounded-xl bg-white/90 text-gray-900 placeholder-gray-500 text-lg focus:outline-none focus:ring-4 focus:ring-pink-300 font-medium"
+                            id="email"
+                            required
+                        >
+                    </div>
+                    <select class="w-full px-6 py-4 rounded-xl bg-white/90 text-gray-900 text-lg focus:outline-none focus:ring-4 focus:ring-pink-300 font-medium" id="role" required>
+                        <option value="">What's your role?</option>
+                        <option value="consultant">Management Consultant</option>
+                        <option value="pm">Product Manager</option>
+                        <option value="strategy">Strategy/BizOps</option>
+                        <option value="sales">Sales/Pre-sales</option>
+                        <option value="marketing">Marketing Manager</option>
+                        <option value="founder">Founder/Executive</option>
+                        <option value="analyst">Business Analyst</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <textarea 
+                        placeholder="What's your biggest slide/deck pain point? (Optional)"
+                        class="w-full px-6 py-4 rounded-xl bg-white/90 text-gray-900 placeholder-gray-500 text-lg focus:outline-none focus:ring-4 focus:ring-pink-300 font-medium h-24 resize-none"
+                        id="painPoint"
+                    ></textarea>
+                    <button 
+                        type="submit"
+                        class="w-full bg-gradient-to-r from-pink-500 to-orange-500 text-white py-5 px-8 rounded-xl text-xl font-bold hover:from-pink-600 hover:to-orange-600 transition-all transform hover:scale-105 pulse-glow"
+                    >
+                        🚀 Join the Waitlist — Get 50% Off Launch
+                    </button>
+                </form>
+                <p class="text-sm text-gray-300 mt-4 leading-relaxed">
+                    ✅ Launch: Q1 2025 &nbsp;•&nbsp; ✅ Early access bonus &nbsp;•&nbsp; ✅ No spam, ever
+                </p>
+            </div>
+
+            <!-- Social Proof Numbers -->
+            <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-yellow-300">512+</div>
+                    <div class="text-sm text-gray-300">Signups</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-yellow-300">94%</div>
+                    <div class="text-sm text-gray-300">Consultants</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-yellow-300">15min</div>
+                    <div class="text-sm text-gray-300">Avg. Time Saved</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem Section -->
+    <div id="problem" class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">The Problem Is Everywhere</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Smart professionals waste 10-20 hours per week rebuilding the same decks. Here's proof from Reddit and LinkedIn.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Reddit Quote 1 -->
+                <div class="bg-gray-50 p-8 rounded-2xl card-hover border-l-4 border-red-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-white font-bold">
+                            R
+                        </div>
+                        <div class="ml-3">
+                            <span class="text-sm font-medium text-gray-900">r/consulting</span>
+                            <span class="text-sm text-gray-500 ml-2">• 321 upvotes</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-800 italic text-lg leading-relaxed">
+                        "I'm so over doing slides. It's never ending in consulting. I've forgotten what a deliverable is these days."
+                    </p>
+                </div>
+                
+                <!-- Reddit Quote 2 -->
+                <div class="bg-gray-50 p-8 rounded-2xl card-hover border-l-4 border-orange-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">
+                            R
+                        </div>
+                        <div class="ml-3">
+                            <span class="text-sm font-medium text-gray-900">r/consulting</span>
+                            <span class="text-sm text-gray-500 ml-2">• 47 upvotes</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-800 italic text-lg leading-relaxed">
+                        "I forget what I wrote last time or can't find it in my folder mess and spend hours redoing stuff that probably already existed."
+                    </p>
+                </div>
+                
+                <!-- LinkedIn Quote -->
+                <div class="bg-gray-50 p-8 rounded-2xl card-hover border-l-4 border-blue-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+                            L
+                        </div>
+                        <div class="ml-3">
+                            <span class="text-sm font-medium text-gray-900">LinkedIn</span>
+                            <span class="text-sm text-gray-500 ml-2">• Senior PM</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-800 italic text-lg leading-relaxed">
+                        "ChatGPT helps with bullets, but it doesn't think like a consultant. I still rebuild decks from scratch weekly."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pain Stats -->
+            <div class="mt-16 bg-gradient-to-r from-red-50 to-orange-50 rounded-3xl p-8">
+                <div class="grid md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="text-3xl font-bold text-red-600">10-20h</div>
+                        <div class="text-gray-700">per week on slides</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-red-600">$2K-10K</div>
+                        <div class="text-gray-700">lost billable time</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-red-600">80%</div>
+                        <div class="text-gray-700">content is reused</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-red-600">0</div>
+                        <div class="text-gray-700">good solutions exist</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solution Section -->
+    <div id="solution" class="bg-gray-900 py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">How SlideOps AI Works</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    From brief to boardroom in minutes. Your AI agent that thinks like a consultant.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-12">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 floating">
+                        <span class="text-3xl font-bold text-white">1</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Upload Your Brief</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        Drop in your messy notes, call transcript, client brief, or even bullet points. Our AI understands context.
+                    </p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 floating" style="animation-delay: 0.5s;">
+                        <span class="text-3xl font-bold text-white">2</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">AI Builds Structure</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        Our agent applies consulting frameworks (MECE, SCQA, Pyramid) and reuses your past slides intelligently.
+                    </p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 floating" style="animation-delay: 1s;">
+                        <span class="text-3xl font-bold text-white">3</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Export & Present</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        Get a client-ready deck exported to PowerPoint or Google Slides. Review, refine, and present.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Demo Video Placeholder -->
+            <div class="mt-16 max-w-4xl mx-auto">
+                <div class="bg-gray-800 rounded-3xl p-8 text-center border border-gray-700">
+                    <div class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 mb-6">
+                        <div class="text-6xl mb-4">🎬</div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Demo Video Coming Soon</h3>
+                        <p class="text-gray-300">See SlideOps AI generate a 10-slide deck in 30 seconds</p>
+                    </div>
+                    <button onclick="scrollToSignup()" class="bg-white text-gray-900 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                        Get Notified When Demo Drops
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Built for Professionals</h2>
+                <p class="text-xl text-gray-600">Not another template tool—a thinking partner for your slide work</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="text-white text-xl">🧠</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Consulting Framework Logic</h3>
+                            <p class="text-gray-600 text-lg">Built-in MECE, SCQA, and Pyramid Principle. Structures decks like McKinsey, not like ChatGPT.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="text-white text-xl">🔄</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Reuses Your Past Decks</h3>
+                            <p class="text-gray-600 text-lg">AI searches your slide library and suggests relevant content from previous work automatically.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="text-white text-xl">🎯</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Team Memory</h3>
+                            <p class="text-gray-600 text-lg">Learns your firm's tone, style, and preferred slide formats. Gets better over time.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="text-white text-xl">🤖</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Multi-Step AI Agent</h3>
+                            <p class="text-gray-600 text-lg">Asks clarifying questions, builds structure, then writes content. Not just a prompt wrapper.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-pink-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="text-white text-xl">📤</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Export Anywhere</h3>
+                            <p class="text-gray-600 text-lg">Google Slides, PowerPoint, or PDF. Clean, editable, client-ready—not locked PDFs.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="text-white text-xl">⚡</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Specialized Agents</h3>
+                            <p class="text-gray-600 text-lg">Proposal Agent, Board Pack Agent, GTM Agent. Purpose-built for your workflow.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <div id="pricing" class="bg-gray-50 py-20">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Early Access Pricing</h2>
+                <p class="text-xl text-gray-600">Get 50% off when you join the waitlist</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Starter Plan -->
+                <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-200">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Starter</h3>
+                        <p class="text-gray-600 mb-4">For individual professionals</p>
+                        <div class="mb-4">
+                            <span class="text-lg text-gray-500 line-through">$39/mo</span>
+                            <span class="text-4xl font-bold text-gray-900 ml-2">$19</span>
+                            <span class="text-gray-600">/mo</span>
+                        </div>
+                        <p class="text-sm text-green-600 font-medium">50% off for early access</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-3">✓</span>
+                            <span>10 decks per month</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-3">✓</span>
+                            <span>Basic AI agent</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-3">✓</span>
+                            <span>PowerPoint & Google Slides export</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-3">✓</span>
+                            <span>Email support</span>
+                        </li>
+                    </ul>
+                    <button onclick="scrollToSignup()" class="w-full bg-gray-900 text-white py-3 rounded-lg font-bold hover:bg-gray-800 transition-colors">
+                        Join Waitlist
+                    </button>
+                </div>
+                
+                <!-- Pro Plan -->
+                <div class="bg-gradient-to-b from-purple-600 to-pink-600 rounded-3xl p-8 shadow-2xl border-4 border-purple-400 relative transform scale-105">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full text-sm font-bold">MOST POPULAR</span>
+                    </div>
+                    <div class="text-center mb-8 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Pro</h3>
+                        <p class="text-purple-100 mb-4">For consultants & PMs</p>
+                        <div class="mb-4">
+                            <span class="text-lg text-purple-200 line-through">$99/mo</span>
+                            <span class="text-4xl font-bold ml-2">$49</span>
+                            <span class="text-purple-100">/mo</span>
+                        </div>
+                        <p class="text-sm text-yellow-300 font-medium">50% off for early access</p>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-white">
+                        <li class="flex items-center">
+                            <span class="text-yellow-300 mr-3">✓</span>
+                            <span>Unlimited decks</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-yellow-300 mr-3">✓</span>
+                            <span>Advanced AI agent with memory</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-yellow-300 mr-3">✓</span>
+                            <span>Slide library & reuse engine</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-yellow-300 mr-3">✓</span>
+                            <span>Custom branding & templates</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-yellow-300 mr-3">✓</span>
+                            <span>Priority support</span>
+                        </li>
+                    </ul>
+                    <button onclick="scrollToSignup()" class="w-full bg-white text-purple-600 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                        Join Waitlist
+                    </button>
+                </div>
+                
+                <!-- Team Plan -->
+                <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-200">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Team</h3>
+                        <p class="text-gray-600 mb-4">For consulting firms & teams</p>
+                        <div class="mb-4">
+                            <span class="text-lg text-gray-500 line-through">$199/mo</span>
+                            <span class="text-4xl font-bold text-gray-900 ml-2">$99</span>
+                            <span class="text-gray-600">/mo</span>
+                        </div>
+                        <p class="text-sm text-green-600 font-medium">50% off for early access</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-3">✓</span>
+                            <span>Everything in Pro</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-3">✓</span>
+                            <span>Up to 10 team members</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-3">✓</span>
+                            <span>Shared slide library</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-3">✓</span>
+                            <span>Team analytics & insights</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-3">✓</span>
+                            <span>White-label options</span>
+                        </li>
+                    </ul>
+                    <button onclick="scrollToSignup()" class="w-full bg-gray-900 text-white py-3 rounded-lg font-bold hover:bg-gray-800 transition-colors">
+                        Join Waitlist
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final CTA -->
+    <div class="gradient-bg
     </footer>
   </div>
 </body>
