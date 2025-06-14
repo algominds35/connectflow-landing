@@ -504,3 +504,219 @@
     <!-- Final CTA -->
     <div class="gradient-bg py-20">
         <div class="max-w-4xl mx-auto text-center px-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Stop Wasting Time on Slides?</h2>
+            <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                Join 500+ professionals who are getting early access to SlideOps AI. Launch is Q1 2025.
+            </p>
+            <button onclick="scrollToSignup()" class="bg-white text-purple-600 px-8 py-4 rounded-xl text-xl font-bold hover:bg-gray-100 transition-all transform hover:scale-105">
+                🚀 Join the Waitlist Now
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <span class="text-2xl font-bold gradient-text">SlideOps AI</span>
+                    <p class="text-gray-400 mt-4 text-lg">
+                        Stop rebuilding the same decks. AI that thinks like a consultant.
+                    </p>
+                    <div class="flex space-x-6 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Product</h4>
+                    <div class="space-y-3">
+                        <a href="#problem" class="text-gray-400 hover:text-white transition-colors block">Problem</a>
+                        <a href="#solution" class="text-gray-400 hover:text-white transition-colors block">Solution</a>
+                        <a href="#pricing" class="text-gray-400 hover:text-white transition-colors block">Pricing</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Company</h4>
+                    <div class="space-y-3">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors block">About</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors block">Contact</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors block">Privacy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">© 2025 SlideOps AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <script>
+        // Supabase configuration - YOUR ACTUAL CREDENTIALS
+        const SUPABASE_URL = 'https://fpfmjyqthyvgugtboenw.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwZm1qeXF0aHl2Z3VndGJvZW53Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk4NDk3MjAsImV4cCI6MjA2NTQyNTcyMH0.IEFhnIU5VuYrtMVlPw8pJ6w90VM15mqv799wUPtMTvY';
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        
+        let signupCount = 512; // Starting number
+        
+        // Update counter display
+        function updateCounter() {
+            const counterElements = document.querySelectorAll('#signup-counter');
+            counterElements.forEach(el => {
+                el.textContent = signupCount + '+';
+            });
+        }
+        
+        // Scroll to signup form
+        function scrollToSignup() {
+            document.getElementById('waitlist-form').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Handle form submission
+        async function handleWaitlistSignup(event) {
+            event.preventDefault();
+            
+            const firstName = document.getElementById('firstName').value;
+            const email = document.getElementById('email').value;
+            const role = document.getElementById('role').value;
+            const painPoint = document.getElementById('painPoint').value;
+            
+            // Validation
+            if (!firstName || !email || !role) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '⏳ Joining...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Insert into Supabase
+                const { data, error } = await supabase
+                    .from('waitlist_signups')
+                    .insert([
+                        {
+                            first_name: firstName,
+                            email: email,
+                            role: role,
+                            pain_point: painPoint || null,
+                            utm_source: new URLSearchParams(window.location.search).get('utm_source'),
+                            utm_campaign: new URLSearchParams(window.location.search).get('utm_campaign')
+                        }
+                    ]);
+                
+                if (error) {
+                    if (error.code === '23505') { // Unique constraint violation
+                        alert('This email is already on the waitlist! 🎉');
+                    } else {
+                        throw error;
+                    }
+                } else {
+                    // Success!
+                    signupCount += 1;
+                    updateCounter();
+                    
+                    // Show success message
+                    showSuccessMessage(firstName);
+                    
+                    // Clear form
+                    document.getElementById('waitlist-form').reset();
+                    
+                    // Track conversion (optional)
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'conversion', {
+                            'send_to': 'YOUR_CONVERSION_ID'
+                        });
+                    }
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Oops! Something went wrong. Please try again.');
+            } finally {
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+        
+        // Show success message
+        function showSuccessMessage(firstName) {
+            const successHtml = `
+                <div id="success-popup" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+                    <div class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center">
+                        <div class="text-6xl mb-4">🎉</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Welcome aboard, ${firstName}!</h3>
+                        <p class="text-gray-600 mb-6">You're on the SlideOps AI waitlist. We'll email you when we launch (Q1 2025) plus send early access bonuses.</p>
+                        <div class="space-y-3">
+                            <button onclick="shareToLinkedIn()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700">
+                                📱 Share on LinkedIn
+                            </button>
+                            <button onclick="closeSuccessPopup()" class="w-full bg-gray-100 text-gray-700 py-3 rounded-lg font-medium hover:bg-gray-200">
+                                Continue Browsing
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', successHtml);
+        }
+        
+        // Close success popup
+        function closeSuccessPopup() {
+            const popup = document.getElementById('success-popup');
+            if (popup) popup.remove();
+        }
+        
+        // Share to LinkedIn
+        function shareToLinkedIn() {
+            const text = "Just joined the SlideOps AI waitlist - finally, an AI that can build consulting-style decks and reuse past content! 🎉";
+            const url = window.location.href;
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`);
+        }
+        
+        // Load initial signup count from database
+        async function loadSignupCount() {
+            try {
+                const { count, error } = await supabase
+                    .from('waitlist_signups')
+                    .select('*', { count: 'exact', head: true });
+                
+                if (!error && count !== null) {
+                    signupCount = Math.max(count + 487, 512); // Add base number for social proof
+                    updateCounter();
+                }
+            } catch (error) {
+                console.error('Error loading count:', error);
+            }
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up form handler
+            document.getElementById('waitlist-form').addEventListener('submit', handleWaitlistSignup);
+            
+            // Load current signup count
+            loadSignupCount();
+            
+            // Update counter display
+            updateCounter();
+            
+            // Add some momentum simulation
+            setInterval(() => {
+                if (Math.random() > 0.85) { // 15% chance every interval
+                    signupCount += Math.floor(Math.random() * 2) + 1;
+                    updateCounter();
+                }
+            }, 20000); // Every 20 seconds
+        });
+    </script>
+</body>
+</html>
+
