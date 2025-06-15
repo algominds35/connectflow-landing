@@ -1,722 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SlideOps AI - Stop Rebuilding The Same Decks</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .gradient-text { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
-        .pulse-glow { animation: pulse-glow 2s infinite; }
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(245, 87, 108, 0.4); }
-            50% { box-shadow: 0 0 40px rgba(245, 87, 108, 0.8); }
-        }
-        .typing-animation { 
-            border-right: 2px solid #f5576c; 
-            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-        }
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: #f5576c; }
-        }
-        .floating { animation: floating 3s ease-in-out infinite; }
-        @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-    </style>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>GuardLight - Stop AI Risk Before It Costs You Millions</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <style>
+       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       body { font-family: 'Inter', sans-serif; }
+       .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+       .card-hover { transition: all 0.3s ease; }
+       .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+   </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white/95 backdrop-blur-lg fixed w-full z-50 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center">
-                    <span class="text-2xl font-bold gradient-text">SlideOps AI</span>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#problem" class="text-gray-600 hover:text-gray-900 transition-colors">Problem</a>
-                    <a href="#solution" class="text-gray-600 hover:text-gray-900 transition-colors">Solution</a>
-                    <a href="#pricing" class="text-gray-600 hover:text-gray-900 transition-colors">Pricing</a>
-                    <button onclick="scrollToSignup()" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all">
-                        Join Waitlist
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
+   <!-- Navigation -->
+   <nav class="bg-white shadow-sm border-b">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="flex justify-between h-16">
+               <div class="flex items-center">
+                   <div class="flex-shrink-0 flex items-center">
+                       <span class="text-2xl font-bold text-gray-900">GuardLight</span>
+                       <span class="ml-2 px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">AI Safety</span>
+                   </div>
+               </div>
+               <div class="flex items-center space-x-4">
+                   <a href="#pricing" class="text-gray-700 hover:text-gray-900">Pricing</a>
+                   <a href="#demo" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Get Demo</a>
+               </div>
+           </div>
+       </div>
+   </nav>
 
-    <!-- Hero Section -->
-    <div class="gradient-bg min-h-screen flex flex-col justify-center items-center px-4 pt-20">
-        <div class="max-w-6xl mx-auto text-center text-white">
-            <!-- Social Proof Badge -->
-            <div class="mb-8 floating">
-                <span class="bg-white/20 backdrop-blur-lg px-6 py-3 rounded-full text-sm font-medium border border-white/30">
-                    🚀 Join <span id="signup-counter" class="font-bold">512+</span> professionals getting early access
-                </span>
-            </div>
-            
-            <!-- Main Headline -->
-            <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight">
-                Stop Rebuilding<br/>
-                <span class="gradient-text typing-animation overflow-hidden whitespace-nowrap">The Same Decks</span>
-            </h1>
-            
-            <!-- Subheadline -->
-            <p class="text-xl md:text-3xl mb-8 text-gray-200 max-w-4xl mx-auto leading-relaxed font-light">
-                SlideOps AI turns your messy notes into <strong>structured, client-ready presentations</strong> in minutes. 
-                Built for consultants, PMs, and strategy teams who waste hours in PowerPoint.
-            </p>
+   <!-- Hero Section -->
+   <section class="gradient-bg text-white py-20">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+           <h1 class="text-5xl md:text-6xl font-bold mb-6">
+               Stop AI Risk Before It<br>
+               <span class="text-yellow-300">Costs You Millions</span>
+           </h1>
+           <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-4xl mx-auto">
+               Real-time guardrails that protect your AI systems from bias, toxicity, and compliance violations
+           </p>
+           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+               <a href="#trial" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition">
+                   Start Free 14-Day Trial
+               </a>
+               <a href="#demo" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition">
+                   Schedule Demo
+               </a>
+           </div>
+           <p class="text-sm text-blue-200 mt-4">No credit card required • Full enterprise features</p>
+       </div>
+   </section>
 
-            <!-- Pain Point Quote -->
-            <div class="bg-red-500/20 backdrop-blur-lg rounded-2xl p-6 mb-8 max-w-3xl mx-auto border border-red-300/30">
-                <p class="text-lg italic text-red-100 mb-3">
-                    "I'm so over doing slides. It's never ending in consulting. I've forgotten what a deliverable is these days."
-                </p>
-                <p class="text-sm text-red-200">— r/consulting, 321 upvotes</p>
-            </div>
-            
-            <!-- CTA Form -->
-            <div class="bg-white/15 backdrop-blur-lg rounded-3xl p-8 mb-8 max-w-2xl mx-auto border border-white/20">
-                <h3 class="text-2xl font-bold mb-6">Get Early Access</h3>
-                <form id="waitlist-form" class="space-y-4">
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <input 
-                            type="text" 
-                            placeholder="First Name"
-                            class="w-full px-6 py-4 rounded-xl bg-white/90 text-gray-900 placeholder-gray-500 text-lg focus:outline-none focus:ring-4 focus:ring-pink-300 font-medium"
-                            id="firstName"
-                            required
-                        >
-                        <input 
-                            type="email" 
-                            placeholder="Work Email"
-                            class="w-full px-6 py-4 rounded-xl bg-white/90 text-gray-900 placeholder-gray-500 text-lg focus:outline-none focus:ring-4 focus:ring-pink-300 font-medium"
-                            id="email"
-                            required
-                        >
-                    </div>
-                    <select class="w-full px-6 py-4 rounded-xl bg-white/90 text-gray-900 text-lg focus:outline-none focus:ring-4 focus:ring-pink-300 font-medium" id="role" required>
-                        <option value="">What's your role?</option>
-                        <option value="consultant">Management Consultant</option>
-                        <option value="pm">Product Manager</option>
-                        <option value="strategy">Strategy/BizOps</option>
-                        <option value="sales">Sales/Pre-sales</option>
-                        <option value="marketing">Marketing Manager</option>
-                        <option value="founder">Founder/Executive</option>
-                        <option value="analyst">Business Analyst</option>
-                        <option value="other">Other</option>
-                    </select>
-                    <textarea 
-                        placeholder="What's your biggest slide/deck pain point? (Optional)"
-                        class="w-full px-6 py-4 rounded-xl bg-white/90 text-gray-900 placeholder-gray-500 text-lg focus:outline-none focus:ring-4 focus:ring-pink-300 font-medium h-24 resize-none"
-                        id="painPoint"
-                    ></textarea>
-                    <button 
-                        type="submit"
-                        class="w-full bg-gradient-to-r from-pink-500 to-orange-500 text-white py-5 px-8 rounded-xl text-xl font-bold hover:from-pink-600 hover:to-orange-600 transition-all transform hover:scale-105 pulse-glow"
-                    >
-                        🚀 Join the Waitlist — Get 50% Off Launch
-                    </button>
-                </form>
-                <p class="text-sm text-gray-300 mt-4 leading-relaxed">
-                    ✅ Launch: Q1 2025 &nbsp;•&nbsp; ✅ Early access bonus &nbsp;•&nbsp; ✅ No spam, ever
-                </p>
-            </div>
+   <!-- What GuardLight Does -->
+   <section class="py-16 bg-white">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="text-center mb-16">
+               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">What GuardLight Does</h2>
+               <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                   We provide instant, automated protection for companies deploying AI at scale. Think of us as your AI safety layer — scanning every AI output for bias, toxicity, and compliance risks before it reaches users.
+               </p>
+           </div>
+           <div class="bg-gray-50 rounded-2xl p-8 text-center">
+               <p class="text-lg text-gray-700 mb-4">
+                   <strong class="text-gray-900">The result?</strong> Sleep better knowing your AI systems won't generate discriminatory content, offensive responses, or outputs that violate regulations like NYC Local Law 144 or the EU AI Act.
+               </p>
+           </div>
+       </div>
+   </section>
 
-            <!-- Social Proof Numbers -->
-            <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-yellow-300">512+</div>
-                    <div class="text-sm text-gray-300">Signups</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-yellow-300">94%</div>
-                    <div class="text-sm text-gray-300">Consultants</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-yellow-300">15min</div>
-                    <div class="text-sm text-gray-300">Avg. Time Saved</div>
-                </div>
-            </div>
-        </div>
-    </div>
+   <!-- Features -->
+   <section class="py-16 bg-gray-50">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="text-center mb-16">
+               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Leading Companies Choose GuardLight</h2>
+           </div>
+           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+               <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
+                   <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                       <span class="text-2xl">⚡</span>
+                   </div>
+                   <h3 class="text-xl font-semibold text-gray-900 mb-3">Real-Time Protection</h3>
+                   <p class="text-gray-600">Sub-50ms API response times ensure safety without slowing down your applications. Block harmful content before users see it.</p>
+               </div>
+               <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
+                   <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                       <span class="text-2xl">🛡️</span>
+                   </div>
+                   <h3 class="text-xl font-semibold text-gray-900 mb-3">Comprehensive Detection</h3>
+                   <ul class="text-gray-600 space-y-1">
+                       <li>• Bias Detection: Racial, gender, age, disability</li>
+                       <li>• Toxicity Filtering: Offensive content blocking</li>
+                       <li>• Compliance Monitoring: Regulatory checks</li>
+                   </ul>
+               </div>
+               <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
+                   <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                       <span class="text-2xl">📊</span>
+                   </div>
+                   <h3 class="text-xl font-semibold text-gray-900 mb-3">Enterprise-Grade Reliability</h3>
+                   <ul class="text-gray-600 space-y-1">
+                       <li>• 99.9% uptime guarantees</li>
+                       <li>• Auto-generated compliance reports</li>
+                       <li>• Complete audit trails</li>
+                   </ul>
+               </div>
+               <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
+                   <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                       <span class="text-2xl">🔧</span>
+                   </div>
+                   <h3 class="text-xl font-semibold text-gray-900 mb-3">Developer-Friendly</h3>
+                   <p class="text-gray-600">Simple REST API integrates with any AI system in minutes. No model retraining required.</p>
+               </div>
+           </div>
+       </div>
+   </section>
 
-    <!-- Problem Section -->
-    <div id="problem" class="bg-white py-20">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">The Problem Is Everywhere</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Smart professionals waste 10-20 hours per week rebuilding the same decks. Here's proof from Reddit and LinkedIn.
-                </p>
-            </div>
-            
-            <div class="grid lg:grid-cols-3 gap-8">
-                <!-- Reddit Quote 1 -->
-                <div class="bg-gray-50 p-8 rounded-2xl card-hover border-l-4 border-red-500">
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-white font-bold">
-                            R
-                        </div>
-                        <div class="ml-3">
-                            <span class="text-sm font-medium text-gray-900">r/consulting</span>
-                            <span class="text-sm text-gray-500 ml-2">• 321 upvotes</span>
-                        </div>
-                    </div>
-                    <p class="text-gray-800 italic text-lg leading-relaxed">
-                        "I'm so over doing slides. It's never ending in consulting. I've forgotten what a deliverable is these days."
-                    </p>
-                </div>
-                
-                <!-- Reddit Quote 2 -->
-                <div class="bg-gray-50 p-8 rounded-2xl card-hover border-l-4 border-orange-500">
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">
-                            R
-                        </div>
-                        <div class="ml-3">
-                            <span class="text-sm font-medium text-gray-900">r/consulting</span>
-                            <span class="text-sm text-gray-500 ml-2">• 47 upvotes</span>
-                        </div>
-                    </div>
-                    <p class="text-gray-800 italic text-lg leading-relaxed">
-                        "I forget what I wrote last time or can't find it in my folder mess and spend hours redoing stuff that probably already existed."
-                    </p>
-                </div>
-                
-                <!-- LinkedIn Quote -->
-                <div class="bg-gray-50 p-8 rounded-2xl card-hover border-l-4 border-blue-500">
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
-                            L
-                        </div>
-                        <div class="ml-3">
-                            <span class="text-sm font-medium text-gray-900">LinkedIn</span>
-                            <span class="text-sm text-gray-500 ml-2">• Senior PM</span>
-                        </div>
-                    </div>
-                    <p class="text-gray-800 italic text-lg leading-relaxed">
-                        "ChatGPT helps with bullets, but it doesn't think like a consultant. I still rebuild decks from scratch weekly."
-                    </p>
-                </div>
-            </div>
+   <!-- Who It's For -->
+   <section class="py-16 bg-white">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="text-center mb-16">
+               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Who GuardLight Protects</h2>
+           </div>
+           <div class="grid md:grid-cols-2 gap-8">
+               <div class="bg-blue-50 p-8 rounded-xl">
+                   <h3 class="text-2xl font-semibold text-gray-900 mb-4">🤖 AI & Engineering Teams</h3>
+                   <p class="text-gray-700">Ship AI features faster with built-in safety. Focus on innovation while we handle risk detection.</p>
+               </div>
+               <div class="bg-green-50 p-8 rounded-xl">
+                   <h3 class="text-2xl font-semibold text-gray-900 mb-4">⚖️ Legal & Compliance</h3>
+                   <p class="text-gray-700">Get the documentation and controls you need to satisfy regulators and reduce legal exposure.</p>
+               </div>
+               <div class="bg-purple-50 p-8 rounded-xl">
+                   <h3 class="text-2xl font-semibold text-gray-900 mb-4">📈 Product & Risk Teams</h3>
+                   <p class="text-gray-700">Prevent brand damage from AI misfires. Protect user experience and company reputation.</p>
+               </div>
+               <div class="bg-orange-50 p-8 rounded-xl">
+                   <h3 class="text-2xl font-semibold text-gray-900 mb-4">👔 Executive Leadership</h3>
+                   <p class="text-gray-700">Mitigate enterprise risk while enabling AI innovation across your organization.</p>
+               </div>
+           </div>
+       </div>
+   </section>
 
-            <!-- Pain Stats -->
-            <div class="mt-16 bg-gradient-to-r from-red-50 to-orange-50 rounded-3xl p-8">
-                <div class="grid md:grid-cols-4 gap-8 text-center">
-                    <div>
-                        <div class="text-3xl font-bold text-red-600">10-20h</div>
-                        <div class="text-gray-700">per week on slides</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-bold text-red-600">$2K-10K</div>
-                        <div class="text-gray-700">lost billable time</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-bold text-red-600">80%</div>
-                        <div class="text-gray-700">content is reused</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-bold text-red-600">0</div>
-                        <div class="text-gray-700">good solutions exist</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   <!-- Risk Section -->
+   <section class="py-16 bg-red-50">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="text-center mb-12">
+               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">The Cost of Getting AI Safety Wrong</h2>
+           </div>
+           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+               <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                   <div class="text-3xl font-bold text-red-600 mb-2">$350K</div>
+                   <p class="text-gray-700"><strong>NYC Local Law 144</strong> violations per incident</p>
+               </div>
+               <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                   <div class="text-3xl font-bold text-red-600 mb-2">$Millions</div>
+                   <p class="text-gray-700"><strong>Class-action lawsuits</strong> from biased AI outputs</p>
+               </div>
+               <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                   <div class="text-3xl font-bold text-red-600 mb-2">∞</div>
+                   <p class="text-gray-700"><strong>Brand damage</strong> from viral AI failures</p>
+               </div>
+               <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                   <div class="text-3xl font-bold text-red-600 mb-2">€Millions</div>
+                   <p class="text-gray-700"><strong>EU AI Act</strong> compliance violations</p>
+               </div>
+           </div>
+           <div class="text-center mt-8">
+               <p class="text-xl font-semibold text-gray-900">One discriminatory AI output can cost more than years of GuardLight protection.</p>
+           </div>
+       </div>
+   </section>
 
-    <!-- Solution Section -->
-    <div id="solution" class="bg-gray-900 py-20">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">How SlideOps AI Works</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    From brief to boardroom in minutes. Your AI agent that thinks like a consultant.
-                </p>
-            </div>
-            
-            <div class="grid lg:grid-cols-3 gap-12">
-                <!-- Step 1 -->
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 floating">
-                        <span class="text-3xl font-bold text-white">1</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Upload Your Brief</h3>
-                    <p class="text-gray-300 text-lg leading-relaxed">
-                        Drop in your messy notes, call transcript, client brief, or even bullet points. Our AI understands context.
-                    </p>
-                </div>
-                
-                <!-- Step 2 -->
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 floating" style="animation-delay: 0.5s;">
-                        <span class="text-3xl font-bold text-white">2</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">AI Builds Structure</h3>
-                    <p class="text-gray-300 text-lg leading-relaxed">
-                        Our agent applies consulting frameworks (MECE, SCQA, Pyramid) and reuses your past slides intelligently.
-                    </p>
-                </div>
-                
-                <!-- Step 3 -->
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 floating" style="animation-delay: 1s;">
-                        <span class="text-3xl font-bold text-white">3</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Export & Present</h3>
-                    <p class="text-gray-300 text-lg leading-relaxed">
-                        Get a client-ready deck exported to PowerPoint or Google Slides. Review, refine, and present.
-                    </p>
-                </div>
-            </div>
+   <!-- Pricing Section -->
+   <section id="pricing" class="py-16 bg-gray-50">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="text-center mb-16">
+               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Pricing That Scales With You</h2>
+               <p class="text-xl text-gray-600">Choose the plan that fits your AI safety needs</p>
+           </div>
+           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+               <!-- Starter Plan -->
+               <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 card-hover">
+                   <div class="text-center">
+                       <h3 class="text-xl font-semibold text-gray-900 mb-2">Starter</h3>
+                       <div class="text-4xl font-bold text-gray-900 mb-1">$49</div>
+                       <p class="text-gray-500 mb-6">per month</p>
+                       <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                           <div class="text-2xl font-bold text-blue-600">10K</div>
+                           <div class="text-sm text-blue-700">API calls/month</div>
+                       </div>
+                       <p class="text-gray-600 mb-6 font-medium">Indie devs, hobbyists</p>
+                       <ul class="text-left space-y-3 mb-8">
+                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Core bias & toxicity detection</li>
+                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Basic reporting</li>
+                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Email support</li>
+                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>API documentation</li>
+                       </ul>
+                       <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                           Start Free Trial
+                       </button>
+                   </div>
+               </div>
 
-            <!-- Demo Video Placeholder -->
-            <div class="mt-16 max-w-4xl mx-auto">
-                <div class="bg-gray-800 rounded-3xl p-8 text-center border border-gray-700">
-                    <div class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 mb-6">
-                        <div class="text-6xl mb-4">🎬</div>
-                        <h3 class="text-2xl font-bold text-white mb-2">Demo Video Coming Soon</h3>
-                        <p class="text-gray-300">See SlideOps AI generate a 10-slide deck in 30 seconds</p>
-                    </div>
-                    <button onclick="scrollToSignup()" class="bg-white text-gray-900 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
-                        Get Notified When Demo Drops
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+               <!-- Pro Plan -->
+               <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 card-hover">
+                   <div class="text-center">
+                       <h3 class="text-xl font-semibold text-gray-900 mb-2">Pro</h3>
+                       <div class="text-4xl font-bold text-gray-900 mb-1">$149</div>
+                       <p class="text-gray-500 mb-6">per month</p>
+                       <div class="bg-green-50 p-4 rounded-lg mb-6">
+                           <div class="text-2xl font-bold text-green-600">100K</div>
+                           <div class="text-sm text-green-700">API calls/month</div>
+                       </div>
+                       <p class="text-gray-600 mb-6 font-medium">Growing GPT tools</p>
+                       <ul class="text-left space-y-3 mb-8">
+                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Advanced detection models</li>
+                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Custom reports</li>
+                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Priority support</li>
+                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Webhook integrations</li>
+                       </ul>
+                       <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                           Start Free Trial
+                       </button>
+                   </div>
+               </div>
 
-    <!-- Features Section -->
-    <div class="bg-white py-20">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Built for Professionals</h2>
-                <p class="text-xl text-gray-600">Not another template tool—a thinking partner for your slide work</p>
-            </div>
-            
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="space-y-8">
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <span class="text-white text-xl">🧠</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Consulting Framework Logic</h3>
-                            <p class="text-gray-600 text-lg">Built-in MECE, SCQA, and Pyramid Principle. Structures decks like McKinsey, not like ChatGPT.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <span class="text-white text-xl">🔄</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Reuses Your Past Decks</h3>
-                            <p class="text-gray-600 text-lg">AI searches your slide library and suggests relevant content from previous work automatically.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <span class="text-white text-xl">🎯</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Team Memory</h3>
-                            <p class="text-gray-600 text-lg">Learns your firm's tone, style, and preferred slide formats. Gets better over time.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="space-y-8">
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <span class="text-white text-xl">🤖</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Multi-Step AI Agent</h3>
-                            <p class="text-gray-600 text-lg">Asks clarifying questions, builds structure, then writes content. Not just a prompt wrapper.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-pink-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <span class="text-white text-xl">📤</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Export Anywhere</h3>
-                            <p class="text-gray-600 text-lg">Google Slides, PowerPoint, or PDF. Clean, editable, client-ready—not locked PDFs.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <span class="text-white text-xl">⚡</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Specialized Agents</h3>
-                            <p class="text-gray-600 text-lg">Proposal Agent, Board Pack Agent, GTM Agent. Purpose-built for your workflow.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+               <!-- Team Plan -->
+               <div class="bg-white rounded-xl shadow-lg border-2 border-blue-500 p-8 card-hover relative">
+                   <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                       <span class="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-medium">Most Popular</span>
+                   </div>
+                   <div class="text-center">
+                       <h3 class="text-xl font-semibold text-gray-900 mb-2">Team</h3>
+                       <div class="text-4xl font-bold text-gray-900 mb-1">$499</div>
+                       <p class="text-gray-500 mb-6">per month</p>
+                       <div class="bg-purple-50 p-4 rounded-lg mb-6">
+                           <div class="text-2xl font-bold text-purple-600">500K</div>
+                           <div class="text-sm text-purple-700">API calls/month</div>
+                       </div>
+                       <p class="text-gray-600 mb-6 font-medium">Small-mid teams with real users</p>
+                       <ul class="text-left space-y-3 mb-8">
+                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Team collaboration tools</li>
+                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Advanced analytics</li>
+                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Slack/Teams integration</li>
+                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Custom detection rules</li>
+                       </ul>
+                       <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                           Start Free Trial
+                       </button>
+                   </div>
+               </div>
 
-    <!-- Pricing Section -->
-    <div id="pricing" class="bg-gray-50 py-20">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Early Access Pricing</h2>
-                <p class="text-xl text-gray-600">Get 50% off when you join the waitlist</p>
-            </div>
-            
-            <div class="grid lg:grid-cols-3 gap-8">
-                <!-- Starter Plan -->
-                <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-200">
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Starter</h3>
-                        <p class="text-gray-600 mb-4">For individual professionals</p>
-                        <div class="mb-4">
-                            <span class="text-lg text-gray-500 line-through">$39/mo</span>
-                            <span class="text-4xl font-bold text-gray-900 ml-2">$19</span>
-                            <span class="text-gray-600">/mo</span>
-                        </div>
-                        <p class="text-sm text-green-600 font-medium">50% off for early access</p>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center">
-                            <span class="text-green-500 mr-3">✓</span>
-                            <span>10 decks per month</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-green-500 mr-3">✓</span>
-                            <span>Basic AI agent</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-green-500 mr-3">✓</span>
-                            <span>PowerPoint & Google Slides export</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-green-500 mr-3">✓</span>
-                            <span>Email support</span>
-                        </li>
-                    </ul>
-                    <button onclick="scrollToSignup()" class="w-full bg-gray-900 text-white py-3 rounded-lg font-bold hover:bg-gray-800 transition-colors">
-                        Join Waitlist
-                    </button>
-                </div>
-                
-                <!-- Pro Plan -->
-                <div class="bg-gradient-to-b from-purple-600 to-pink-600 rounded-3xl p-8 shadow-2xl border-4 border-purple-400 relative transform scale-105">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                        <span class="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full text-sm font-bold">MOST POPULAR</span>
-                    </div>
-                    <div class="text-center mb-8 text-white">
-                        <h3 class="text-2xl font-bold mb-2">Pro</h3>
-                        <p class="text-purple-100 mb-4">For consultants & PMs</p>
-                        <div class="mb-4">
-                            <span class="text-lg text-purple-200 line-through">$99/mo</span>
-                            <span class="text-4xl font-bold ml-2">$49</span>
-                            <span class="text-purple-100">/mo</span>
-                        </div>
-                        <p class="text-sm text-yellow-300 font-medium">50% off for early access</p>
-                    </div>
-                    <ul class="space-y-4 mb-8 text-white">
-                        <li class="flex items-center">
-                            <span class="text-yellow-300 mr-3">✓</span>
-                            <span>Unlimited decks</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-yellow-300 mr-3">✓</span>
-                            <span>Advanced AI agent with memory</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-yellow-300 mr-3">✓</span>
-                            <span>Slide library & reuse engine</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-yellow-300 mr-3">✓</span>
-                            <span>Custom branding & templates</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-yellow-300 mr-3">✓</span>
-                            <span>Priority support</span>
-                        </li>
-                    </ul>
-                    <button onclick="scrollToSignup()" class="w-full bg-white text-purple-600 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
-                        Join Waitlist
-                    </button>
-                </div>
-                
-                <!-- Team Plan -->
-                <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-200">
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Team</h3>
-                        <p class="text-gray-600 mb-4">For consulting firms & teams</p>
-                        <div class="mb-4">
-                            <span class="text-lg text-gray-500 line-through">$199/mo</span>
-                            <span class="text-4xl font-bold text-gray-900 ml-2">$99</span>
-                            <span class="text-gray-600">/mo</span>
-                        </div>
-                        <p class="text-sm text-green-600 font-medium">50% off for early access</p>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center">
-                            <span class="text-green-500 mr-3">✓</span>
-                            <span>Everything in Pro</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-green-500 mr-3">✓</span>
-                            <span>Up to 10 team members</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-green-500 mr-3">✓</span>
-                            <span>Shared slide library</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-green-500 mr-3">✓</span>
-                            <span>Team analytics & insights</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-green-500 mr-3">✓</span>
-                            <span>White-label options</span>
-                        </li>
-                    </ul>
-                    <button onclick="scrollToSignup()" class="w-full bg-gray-900 text-white py-3 rounded-lg font-bold hover:bg-gray-800 transition-colors">
-                        Join Waitlist
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+               <!-- Enterprise Plan -->
+               <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 card-hover">
+                   <div class="text-center">
+                       <h3 class="text-xl font-semibold text-gray-900 mb-2">Enterprise</h3>
+                       <div class="text-4xl font-bold text-gray-900 mb-1">$2,000+</div>
+                       <p class="text-gray-500 mb-6">per month</p>
+                       <div class="bg-orange-50 p-4 rounded-lg mb-6">
+                           <div class="text-xl font-bold text-orange-600">Custom</div>
+                           <div class="text-sm text-orange-700">Volume & features</div>
+                       </div>
+                       <p class="text-gray-600 mb-6 font-medium">Compliance-heavy industries</p>
+                       <ul class="text-left space-y-3 mb-8">
+                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Unlimited API calls</li>
+                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>99.9% uptime SLA</li>
+                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Dedicated success manager</li>
+                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Custom compliance features</li>
+                       </ul>
+                       <button class="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition">
+                           Contact Sales
+                       </button>
+                   </div>
+               </div>
+           </div>
+           <div class="text-center mt-8">
+               <p class="text-gray-600"><em>All plans include real-time protection and audit trail documentation.</em></p>
+           </div>
+       </div>
+   </section>
 
-    <!-- Final CTA -->
-    <div class="gradient-bg py-20">
-        <div class="max-w-4xl mx-auto text-center px-4">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Stop Wasting Time on Slides?</h2>
-            <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-                Join 500+ professionals who are getting early access to SlideOps AI. Launch is Q1 2025.
-            </p>
-            <button onclick="scrollToSignup()" class="bg-white text-purple-600 px-8 py-4 rounded-xl text-xl font-bold hover:bg-gray-100 transition-all transform hover:scale-105">
-                🚀 Join the Waitlist Now
-            </button>
-        </div>
-    </div>
+   <!-- Social Proof -->
+   <section class="py-16 bg-white">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="text-center mb-16">
+               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Trusted by Companies That Can't Afford AI Risk</h2>
+           </div>
+           <div class="bg-gray-50 rounded-2xl p-8 mb-12">
+               <blockquote class="text-xl italic text-gray-700 text-center mb-6">
+                   "GuardLight gives our legal team the confidence to approve AI features. The compliance reporting alone saves us weeks of work."
+               </blockquote>
+               <p class="text-center text-gray-600 font-semibold">— Chief Legal Officer, Fortune 500 Financial Services</p>
+           </div>
+           <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+               <div class="flex flex-col items-center">
+                   <span class="text-2xl mb-2">⭐</span>
+                   <p class="font-semibold text-gray-900">SOC 2 Type II</p>
+                   <p class="text-sm text-gray-600">Certified</p>
+               </div>
+               <div class="flex flex-col items-center">
+                   <span class="text-2xl mb-2">⭐</span>
+                   <p class="font-semibold text-gray-900">GDPR</p>
+                   <p class="text-sm text-gray-600">Compliant</p>
+               </div>
+               <div class="flex flex-col items-center">
+                   <span class="text-2xl mb-2">⭐</span>
+                   <p class="font-semibold text-gray-900">99.9%</p>
+                   <p class="text-sm text-gray-600">Uptime</p>
+               </div>
+               <div class="flex flex-col items-center">
+                   <span class="text-2xl mb-2">⭐</span>
+                   <p class="font-semibold text-gray-900">Sub-50ms</p>
+                   <p class="text-sm text-gray-600">Response Time</p>
+               </div>
+           </div>
+       </div>
+   </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 py-12">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="md:col-span-2">
-                    <span class="text-2xl font-bold gradient-text">SlideOps AI</span>
-                    <p class="text-gray-400 mt-4 text-lg">
-                        Stop rebuilding the same decks. AI that thinks like a consultant.
-                    </p>
-                    <div class="flex space-x-6 mt-6">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Product</h4>
-                    <div class="space-y-3">
-                        <a href="#problem" class="text-gray-400 hover:text-white transition-colors block">Problem</a>
-                        <a href="#solution" class="text-gray-400 hover:text-white transition-colors block">Solution</a>
-                        <a href="#pricing" class="text-gray-400 hover:text-white transition-colors block">Pricing</a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Company</h4>
-                    <div class="space-y-3">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors block">About</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors block">Contact</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors block">Privacy</a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-                <p class="text-gray-400">© 2025 SlideOps AI. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+   <!-- CTA Section -->
+   <section id="trial" class="py-20 gradient-bg text-white">
+       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+           <h2 class="text-3xl md:text-4xl font-bold mb-6">Get Protected in Under 24 Hours</h2>
+           <p class="text-xl mb-8 text-blue-100">
+               Ready to eliminate AI risk from your organization? Our team will have you protected and compliant within one business day.
+           </p>
+           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+               <a href="#" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition">
+                   Start Free 14-Day Trial →
+               </a>
+           </div>
+           <p class="text-blue-200 mb-8">No credit card required. Full access to enterprise features.</p>
+           <p class="text-lg">
+               <strong>Questions?</strong> 
+               <a href="mailto:demo@guardlight.ai" class="underline hover:text-yellow-300">Schedule a 15-minute demo</a> 
+               with our AI safety experts.
+           </p>
+       </div>
+   </section>
 
-    <!-- Supabase JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    
-    <script>
-        // Supabase configuration - YOUR ACTUAL CREDENTIALS
-        const SUPABASE_URL = 'https://fpfmjyqthyvgugtboenw.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwZm1qeXF0aHl2Z3VndGJvZW53Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk4NDk3MjAsImV4cCI6MjA2NTQyNTcyMH0.IEFhnIU5VuYrtMVlPw8pJ6w90VM15mqv799wUPtMTvY';
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        
-        let signupCount = 512; // Starting number
-        
-        // Update counter display
-        function updateCounter() {
-            const counterElements = document.querySelectorAll('#signup-counter');
-            counterElements.forEach(el => {
-                el.textContent = signupCount + '+';
-            });
-        }
-        
-        // Scroll to signup form
-        function scrollToSignup() {
-            document.getElementById('waitlist-form').scrollIntoView({ behavior: 'smooth' });
-        }
-        
-        // Handle form submission
-        async function handleWaitlistSignup(event) {
-            event.preventDefault();
-            
-            const firstName = document.getElementById('firstName').value;
-            const email = document.getElementById('email').value;
-            const role = document.getElementById('role').value;
-            const painPoint = document.getElementById('painPoint').value;
-            
-            // Validation
-            if (!firstName || !email || !role) {
-                alert('Please fill in all required fields');
-                return;
-            }
-            
-            // Show loading state
-            const submitBtn = event.target.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '⏳ Joining...';
-            submitBtn.disabled = true;
-            
-            try {
-                // Insert into Supabase
-                const { data, error } = await supabase
-                    .from('waitlist_signups')
-                    .insert([
-                        {
-                            first_name: firstName,
-                            email: email,
-                            role: role,
-                            pain_point: painPoint || null,
-                            utm_source: new URLSearchParams(window.location.search).get('utm_source'),
-                            utm_campaign: new URLSearchParams(window.location.search).get('utm_campaign')
-                        }
-                    ]);
-                
-                if (error) {
-                    if (error.code === '23505') { // Unique constraint violation
-                        alert('This email is already on the waitlist! 🎉');
-                    } else {
-                        throw error;
-                    }
-                } else {
-                    // Success!
-                    signupCount += 1;
-                    updateCounter();
-                    
-                    // Show success message
-                    showSuccessMessage(firstName);
-                    
-                    // Clear form
-                    document.getElementById('waitlist-form').reset();
-                    
-                    // Track conversion (optional)
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'conversion', {
-                            'send_to': 'YOUR_CONVERSION_ID'
-                        });
-                    }
-                }
-                
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Oops! Something went wrong. Please try again.');
-            } finally {
-                // Reset button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }
-        }
-        
-        // Show success message
-        function showSuccessMessage(firstName) {
-            const successHtml = `
-                <div id="success-popup" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-                    <div class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center">
-                        <div class="text-6xl mb-4">🎉</div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Welcome aboard, ${firstName}!</h3>
-                        <p class="text-gray-600 mb-6">You're on the SlideOps AI waitlist. We'll email you when we launch (Q1 2025) plus send early access bonuses.</p>
-                        <div class="space-y-3">
-                            <button onclick="shareToLinkedIn()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700">
-                                📱 Share on LinkedIn
-                            </button>
-                            <button onclick="closeSuccessPopup()" class="w-full bg-gray-100 text-gray-700 py-3 rounded-lg font-medium hover:bg-gray-200">
-                                Continue Browsing
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            document.body.insertAdjacentHTML('beforeend', successHtml);
-        }
-        
-        // Close success popup
-        function closeSuccessPopup() {
-            const popup = document.getElementById('success-popup');
-            if (popup) popup.remove();
-        }
-        
-        // Share to LinkedIn
-        function shareToLinkedIn() {
-            const text = "Just joined the SlideOps AI waitlist - finally, an AI that can build consulting-style decks and reuse past content! 🎉";
-            const url = window.location.href;
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`);
-        }
-        
-        // Load initial signup count from database
-        async function loadSignupCount() {
-            try {
-                const { count, error } = await supabase
-                    .from('waitlist_signups')
-                    .select('*', { count: 'exact', head: true });
-                
-                if (!error && count !== null) {
-                    signupCount = Math.max(count + 487, 512); // Add base number for social proof
-                    updateCounter();
-                }
-            } catch (error) {
-                console.error('Error loading count:', error);
-            }
-        }
-        
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set up form handler
-            document.getElementById('waitlist-form').addEventListener('submit', handleWaitlistSignup);
-            
-            // Load current signup count
-            loadSignupCount();
-            
-            // Update counter display
-            updateCounter();
-            
-            // Add some momentum simulation
-            setInterval(() => {
-                if (Math.random() > 0.85) { // 15% chance every interval
-                    signupCount += Math.floor(Math.random() * 2) + 1;
-                    updateCounter();
-                }
-            }, 20000); // Every 20 seconds
-        });
-    </script>
+   <!-- Footer -->
+   <footer class="bg-gray-900 text-white py-12">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="grid md:grid-cols-4 gap-8">
+               <div>
+                   <div class="flex items-center mb-4">
+                       <span class="text-2xl font-bold">GuardLight</span>
+                       <span class="ml-2 px-2 py-1 bg-blue-600 text-blue-100 text-xs font-medium rounded">AI Safety</span>
+                   </div>
+                   <p class="text-gray-400">Protecting businesses from AI risk with real-time guardrails and compliance monitoring.</p>
+               </div>
+               <div>
+                   <h4 class="font-semibold mb-4">Product</h4>
+                   <ul class="space-y-2 text-gray-400">
+                       <li><a href="#" class="hover:text-white">Features</a></li>
+                       <li><a href="#" class="hover:text-white">API Docs</a></li>
+                       <li><a href="#" class="hover:text-white">Integrations</a></li>
+                       <li><a href="#" class="hover:text-white">Status</a></li>
+                   </ul>
+               </div>
+               <div>
+                   <h4 class="font-semibold mb-4">Company</h4>
+                   <ul class="space-y-2 text-gray-400">
+                       <li><a href="#" class="hover:text-white">About</a></li>
+                       <li><a href="#" class="hover:text-white">Blog</a></li>
+                       <li><a href="#" class="hover:text-white">Careers</a></li>
+                       <li><a href="#" class="hover:text-white">Contact</a></li>
+                   </ul>
+               </div>
+               <div>
+                   <h4 class="font-semibold mb-4">Legal</h4>
+                   <ul class="space-y-2 text-gray-400">
+                       <li><a href="#" class="hover:text-white">Privacy</a></li>
+                       <li><a href="#" class="hover:text-white">Terms</a></li>
+                       <li><a href="#" class="hover:text-white">Security</a></li>
+                       <li><a href="#" class="hover:text-white">Compliance</a></li>
+                   </ul>
+               </div>
+           </div>
+           <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+               <p>&copy; 2025 GuardLight. All rights reserved. | GuardLight is trusted by legal, compliance, and AI teams at companies that deploy AI at scale.</p>
+           </div>
+       </div>
+   </footer>
 </body>
 </html>
 
