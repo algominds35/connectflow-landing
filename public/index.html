@@ -1,391 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>GuardLight - Stop AI Risk Before It Costs You Millions</title>
-   <script src="https://cdn.tailwindcss.com"></script>
-   <style>
-       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-       body { font-family: 'Inter', sans-serif; }
-       .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-       .card-hover { transition: all 0.3s ease; }
-       .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-   </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuardLight - Join the Waitlist | AI Safety Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .pulse-animation { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
-   <!-- Navigation -->
-   <nav class="bg-white shadow-sm border-b">
-       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div class="flex justify-between h-16">
-               <div class="flex items-center">
-                   <div class="flex-shrink-0 flex items-center">
-                       <span class="text-2xl font-bold text-gray-900">GuardLight</span>
-                       <span class="ml-2 px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">AI Safety</span>
-                   </div>
-               </div>
-               <div class="flex items-center space-x-4">
-                   <a href="#pricing" class="text-gray-700 hover:text-gray-900">Pricing</a>
-                   <a href="#demo" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Get Demo</a>
-               </div>
-           </div>
-       </div>
-   </nav>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold text-gray-900">GuardLight</span>
+                        <span class="ml-2 px-2 py-1 bg-red-100 text-red-800 text-xs font-medium rounded">Coming Soon</span>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <span class="text-sm text-gray-600">Early Access Launching Q1 2025</span>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-   <!-- Hero Section -->
-   <section class="gradient-bg text-white py-20">
-       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-           <h1 class="text-5xl md:text-6xl font-bold mb-6">
-               Stop AI Risk Before It<br>
-               <span class="text-yellow-300">Costs You Millions</span>
-           </h1>
-           <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-4xl mx-auto">
-               Real-time guardrails that protect your AI systems from bias, toxicity, and compliance violations
-           </p>
-           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-               <a href="#trial" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition">
-                   Start Free 14-Day Trial
-               </a>
-               <a href="#demo" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition">
-                   Schedule Demo
-               </a>
-           </div>
-           <p class="text-sm text-blue-200 mt-4">No credit card required • Full enterprise features</p>
-       </div>
-   </section>
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-6">
+                <span class="bg-yellow-400 text-yellow-900 px-4 py-2 rounded-full text-sm font-semibold">
+                    🚨 Early Access Opening Soon
+                </span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                Stop AI Disasters<br>
+                <span class="text-yellow-300">Before They Happen</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
+                **🚨 GuardLight – Real-Time AI Compliance Layer**<br>
+                Prevent bias, toxicity & violations *before they happen*. Built for hiring tools, LLM copilots & regulated AI workflows.
+            </p>
+            
+            <!-- Waitlist Counter -->
+            <div class="mb-8">
+                <div class="bg-white bg-opacity-20 rounded-lg p-4 inline-block">
+                    <div class="text-yellow-300 text-sm font-medium">People on waitlist</div>
+                    <div class="text-3xl font-bold text-white" id="waitlist-counter">1,247</div>
+                </div>
+            </div>
 
-   <!-- What GuardLight Does -->
-   <section class="py-16 bg-white">
-       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div class="text-center mb-16">
-               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">What GuardLight Does</h2>
-               <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                   We provide instant, automated protection for companies deploying AI at scale. Think of us as your AI safety layer — scanning every AI output for bias, toxicity, and compliance risks before it reaches users.
-               </p>
-           </div>
-           <div class="bg-gray-50 rounded-2xl p-8 text-center">
-               <p class="text-lg text-gray-700 mb-4">
-                   <strong class="text-gray-900">The result?</strong> Sleep better knowing your AI systems won't generate discriminatory content, offensive responses, or outputs that violate regulations like NYC Local Law 144 or the EU AI Act.
-               </p>
-           </div>
-       </div>
-   </section>
+            <!-- Waitlist Form -->
+            <div class="bg-white rounded-2xl p-8 max-w-lg mx-auto shadow-2xl">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">🛡️ Claim 50% Lifetime Discount</h3>
+                <form id="waitlist-form" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" id="first_name" placeholder="First Name" required
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                        <input type="email" id="email" placeholder="Work Email" required
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                    </div>
+                    <select id="role" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                        <option value="">Select Your Role</option>
+                        <option value="ai_engineer">AI/ML Engineer</option>
+                        <option value="developer">Software Developer</option>
+                        <option value="product_manager">Product Manager</option>
+                        <option value="legal_compliance">Legal/Compliance</option>
+                        <option value="cto_vp_eng">CTO/VP Engineering</option>
+                        <option value="founder_ceo">Founder/CEO</option>
+                        <option value="risk_manager">Risk Manager</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <select id="company_size" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                        <option value="">Company Size</option>
+                        <option value="startup">Startup (1-50)</option>
+                        <option value="small">Small (51-200)</option>
+                        <option value="medium">Medium (201-1000)</option>
+                        <option value="large">Large (1000+)</option>
+                    </select>
+                    <select id="primary_focus" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                        <option value="">Primary AI Safety Concern</option>
+                        <option value="compliance">NYC Law 144 / EU AI Act Compliance</option>
+                        <option value="bias">Bias Detection & Prevention</option>
+                        <option value="toxicity">Toxicity & Content Filtering</option>
+                        <option value="legal_risk">Legal Risk & Lawsuit Prevention</option>
+                        <option value="brand_protection">Brand Protection</option>
+                        <option value="hiring_tools">Hiring Tool Compliance</option>
+                        <option value="customer_facing">Customer-Facing AI Safety</option>
+                        <option value="general">General AI Governance</option>
+                    </select>
+                    <textarea id="use_case" placeholder="What's your biggest AI safety challenge? (Optional)"
+                              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none h-20 resize-none"></textarea>
+                    <button type="submit" id="submit-btn"
+                            class="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition duration-200">
+                        🚀 Get Early Access + 50% Off
+                    </button>
+                </form>
+                <p class="text-sm text-gray-600 mt-4 text-center">
+                    ✅ First 100 get lifetime 50% discount<br>
+                    ✅ Built for NYC Law 144 & EU AI Act compliance<br>
+                    ✅ No spam, just product updates
+                </p>
+            </div>
+        </div>
+    </section>
 
-   <!-- Features -->
-   <section class="py-16 bg-gray-50">
-       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div class="text-center mb-16">
-               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Leading Companies Choose GuardLight</h2>
-           </div>
-           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-               <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
-                   <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                       <span class="text-2xl">⚡</span>
-                   </div>
-                   <h3 class="text-xl font-semibold text-gray-900 mb-3">Real-Time Protection</h3>
-                   <p class="text-gray-600">Sub-50ms API response times ensure safety without slowing down your applications. Block harmful content before users see it.</p>
-               </div>
-               <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
-                   <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                       <span class="text-2xl">🛡️</span>
-                   </div>
-                   <h3 class="text-xl font-semibold text-gray-900 mb-3">Comprehensive Detection</h3>
-                   <ul class="text-gray-600 space-y-1">
-                       <li>• Bias Detection: Racial, gender, age, disability</li>
-                       <li>• Toxicity Filtering: Offensive content blocking</li>
-                       <li>• Compliance Monitoring: Regulatory checks</li>
-                   </ul>
-               </div>
-               <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
-                   <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                       <span class="text-2xl">📊</span>
-                   </div>
-                   <h3 class="text-xl font-semibold text-gray-900 mb-3">Enterprise-Grade Reliability</h3>
-                   <ul class="text-gray-600 space-y-1">
-                       <li>• 99.9% uptime guarantees</li>
-                       <li>• Auto-generated compliance reports</li>
-                       <li>• Complete audit trails</li>
-                   </ul>
-               </div>
-               <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
-                   <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                       <span class="text-2xl">🔧</span>
-                   </div>
-                   <h3 class="text-xl font-semibold text-gray-900 mb-3">Developer-Friendly</h3>
-                   <p class="text-gray-600">Simple REST API integrates with any AI system in minutes. No model retraining required.</p>
-               </div>
-           </div>
-       </div>
-   </section>
+    <!-- Problem Section -->
+    <section class="py-16 bg-red-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">The AI Safety Crisis is Real</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Every day, AI systems generate biased, toxic, or non-compliant outputs that cost companies millions
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                    <div class="text-4xl mb-4">⚖️</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Legal Exposure</h3>
+                    <p class="text-gray-600">NYC Local Law 144 fines up to $350K per violation. EU AI Act brings even stricter penalties.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                    <div class="text-4xl mb-4">💸</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Brand Damage</h3>
+                    <p class="text-gray-600">One viral AI failure can destroy years of reputation building and customer trust.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Discrimination Risk</h3>
+                    <p class="text-gray-600">Biased AI outputs lead to class-action lawsuits and regulatory investigations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-   <!-- Who It's For -->
-   <section class="py-16 bg-white">
-       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div class="text-center mb-16">
-               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Who GuardLight Protects</h2>
-           </div>
-           <div class="grid md:grid-cols-2 gap-8">
-               <div class="bg-blue-50 p-8 rounded-xl">
-                   <h3 class="text-2xl font-semibold text-gray-900 mb-4">🤖 AI & Engineering Teams</h3>
-                   <p class="text-gray-700">Ship AI features faster with built-in safety. Focus on innovation while we handle risk detection.</p>
-               </div>
-               <div class="bg-green-50 p-8 rounded-xl">
-                   <h3 class="text-2xl font-semibold text-gray-900 mb-4">⚖️ Legal & Compliance</h3>
-                   <p class="text-gray-700">Get the documentation and controls you need to satisfy regulators and reduce legal exposure.</p>
-               </div>
-               <div class="bg-purple-50 p-8 rounded-xl">
-                   <h3 class="text-2xl font-semibold text-gray-900 mb-4">📈 Product & Risk Teams</h3>
-                   <p class="text-gray-700">Prevent brand damage from AI misfires. Protect user experience and company reputation.</p>
-               </div>
-               <div class="bg-orange-50 p-8 rounded-xl">
-                   <h3 class="text-2xl font-semibold text-gray-900 mb-4">👔 Executive Leadership</h3>
-                   <p class="text-gray-700">Mitigate enterprise risk while enabling AI innovation across your organization.</p>
-               </div>
-           </div>
-       </div>
-   </section>
+    <!-- Solution Preview -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">How GuardLight Protects You</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Real-time AI safety that integrates seamlessly with your existing systems
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-blue-600 font-bold">1</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Real-Time Detection</h3>
+                                <p class="text-gray-600">Every AI output is scanned for bias, toxicity, and compliance violations in under 50ms</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-green-600 font-bold">2</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Automatic Blocking</h3>
+                                <p class="text-gray-600">Harmful content is stopped before it reaches users, with safe alternatives suggested</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-purple-600 font-bold">3</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Compliance Reports</h3>
+                                <p class="text-gray-600">Automated documentation for audits, with detailed logs for legal teams</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6 text-green-400 font-mono text-sm">
+                    <div class="mb-4 text-gray-400">// GuardLight API Response</div>
+                    <div>{</div>
+                    <div class="ml-4">"status": "blocked",</div>
+                    <div class="ml-4">"risk_score": 0.89,</div>
+                    <div class="ml-4">"violations": [</div>
+                    <div class="ml-8 text-red-400">"racial_bias",</div>
+                    <div class="ml-8 text-red-400">"toxicity"</div>
+                    <div class="ml-4">],</div>
+                    <div class="ml-4">"safe_alternative": "...",</div>
+                    <div class="ml-4">"response_time": "47ms"</div>
+                    <div>}</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-   <!-- Risk Section -->
-   <section class="py-16 bg-red-50">
-       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div class="text-center mb-12">
-               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">The Cost of Getting AI Safety Wrong</h2>
-           </div>
-           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-               <div class="bg-white p-6 rounded-xl shadow-sm text-center">
-                   <div class="text-3xl font-bold text-red-600 mb-2">$350K</div>
-                   <p class="text-gray-700"><strong>NYC Local Law 144</strong> violations per incident</p>
-               </div>
-               <div class="bg-white p-6 rounded-xl shadow-sm text-center">
-                   <div class="text-3xl font-bold text-red-600 mb-2">$Millions</div>
-                   <p class="text-gray-700"><strong>Class-action lawsuits</strong> from biased AI outputs</p>
-               </div>
-               <div class="bg-white p-6 rounded-xl shadow-sm text-center">
-                   <div class="text-3xl font-bold text-red-600 mb-2">∞</div>
-                   <p class="text-gray-700"><strong>Brand damage</strong> from viral AI failures</p>
-               </div>
-               <div class="bg-white p-6 rounded-xl shadow-sm text-center">
-                   <div class="text-3xl font-bold text-red-600 mb-2">€Millions</div>
-                   <p class="text-gray-700"><strong>EU AI Act</strong> compliance violations</p>
-               </div>
-           </div>
-           <div class="text-center mt-8">
-               <p class="text-xl font-semibold text-gray-900">One discriminatory AI output can cost more than years of GuardLight protection.</p>
-           </div>
-       </div>
-   </section>
+    <!-- Early Access Benefits -->
+    <section class="py-16 bg-blue-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Early Access Benefits</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
+                    <div class="text-3xl mb-4">💰</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">50% Off for Life</h3>
+                    <p class="text-gray-600">First 100 users lock in permanent pricing discount</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
+                    <div class="text-3xl mb-4">🎯</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Shape the Product</h3>
+                    <p class="text-gray-600">Your feedback directly influences features and priorities</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
+                    <div class="text-3xl mb-4">⚡</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Priority Support</h3>
+                    <p class="text-gray-600">Direct access to founders and engineering team</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-   <!-- Pricing Section -->
-   <section id="pricing" class="py-16 bg-gray-50">
-       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div class="text-center mb-16">
-               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Pricing That Scales With You</h2>
-               <p class="text-xl text-gray-600">Choose the plan that fits your AI safety needs</p>
-           </div>
-           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-               <!-- Starter Plan -->
-               <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 card-hover">
-                   <div class="text-center">
-                       <h3 class="text-xl font-semibold text-gray-900 mb-2">Starter</h3>
-                       <div class="text-4xl font-bold text-gray-900 mb-1">$49</div>
-                       <p class="text-gray-500 mb-6">per month</p>
-                       <div class="bg-blue-50 p-4 rounded-lg mb-6">
-                           <div class="text-2xl font-bold text-blue-600">10K</div>
-                           <div class="text-sm text-blue-700">API calls/month</div>
-                       </div>
-                       <p class="text-gray-600 mb-6 font-medium">Indie devs, hobbyists</p>
-                       <ul class="text-left space-y-3 mb-8">
-                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Core bias & toxicity detection</li>
-                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Basic reporting</li>
-                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Email support</li>
-                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>API documentation</li>
-                       </ul>
-                       <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-                           Start Free Trial
-                       </button>
-                   </div>
-               </div>
+    <!-- Social Proof -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">Built by AI Safety Experts</h2>
+            <div class="bg-gray-50 rounded-xl p-8">
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <div class="text-2xl font-bold text-blue-600 mb-2">5+ Years</div>
+                        <p class="text-gray-600">AI Safety Research</p>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-green-600 mb-2">$100M+</div>
+                        <p class="text-gray-600">Protected in AI Investments</p>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-purple-600 mb-2">Fortune 500</div>
+                        <p class="text-gray-600">Enterprise Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-               <!-- Pro Plan -->
-               <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 card-hover">
-                   <div class="text-center">
-                       <h3 class="text-xl font-semibold text-gray-900 mb-2">Pro</h3>
-                       <div class="text-4xl font-bold text-gray-900 mb-1">$149</div>
-                       <p class="text-gray-500 mb-6">per month</p>
-                       <div class="bg-green-50 p-4 rounded-lg mb-6">
-                           <div class="text-2xl font-bold text-green-600">100K</div>
-                           <div class="text-sm text-green-700">API calls/month</div>
-                       </div>
-                       <p class="text-gray-600 mb-6 font-medium">Growing GPT tools</p>
-                       <ul class="text-left space-y-3 mb-8">
-                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Advanced detection models</li>
-                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Custom reports</li>
-                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Priority support</li>
-                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Webhook integrations</li>
-                       </ul>
-                       <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-                           Start Free Trial
-                       </button>
-                   </div>
-               </div>
+    <!-- Final CTA -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Don't Wait for an AI Disaster</h2>
+            <p class="text-xl mb-8 text-blue-100">
+                Join 1,250+ builders protecting their AI from bias, toxicity & compliance disasters
+            </p>
+            <div class="bg-white rounded-2xl p-6 max-w-md mx-auto">
+                <div class="text-gray-900 mb-4">
+                    <div class="text-sm font-medium text-gray-600">Still joining...</div>
+                    <div class="text-2xl font-bold" id="bottom-counter">1,247</div>
+                </div>
+                <a href="#waitlist-form" onclick="document.getElementById('first_name').focus()" 
+                   class="block w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                    📩 Request Access to GuardLight Beta
+                </a>
+            </div>
+            <p class="text-sm text-blue-200 mt-6">
+                Early access opens Q1 2025 • No spam, just updates
+            </p>
+        </div>
+    </section>
 
-               <!-- Team Plan -->
-               <div class="bg-white rounded-xl shadow-lg border-2 border-blue-500 p-8 card-hover relative">
-                   <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                       <span class="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-medium">Most Popular</span>
-                   </div>
-                   <div class="text-center">
-                       <h3 class="text-xl font-semibold text-gray-900 mb-2">Team</h3>
-                       <div class="text-4xl font-bold text-gray-900 mb-1">$499</div>
-                       <p class="text-gray-500 mb-6">per month</p>
-                       <div class="bg-purple-50 p-4 rounded-lg mb-6">
-                           <div class="text-2xl font-bold text-purple-600">500K</div>
-                           <div class="text-sm text-purple-700">API calls/month</div>
-                       </div>
-                       <p class="text-gray-600 mb-6 font-medium">Small-mid teams with real users</p>
-                       <ul class="text-left space-y-3 mb-8">
-                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Team collaboration tools</li>
-                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Advanced analytics</li>
-                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Slack/Teams integration</li>
-                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Custom detection rules</li>
-                       </ul>
-                       <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-                           Start Free Trial
-                       </button>
-                   </div>
-               </div>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <span class="text-xl font-bold">GuardLight</span>
+                <span class="ml-2 px-2 py-1 bg-blue-600 text-blue-100 text-xs font-medium rounded">AI Safety</span>
+            </div>
+            <p class="text-gray-400 mb-4">Protecting the future of AI, one API call at a time</p>
+            <div class="flex justify-center space-x-6 text-sm text-gray-400">
+                <a href="mailto:hello@guardlight.ai" class="hover:text-white">Contact</a>
+                <a href="#" class="hover:text-white">Privacy</a>
+                <a href="#" class="hover:text-white">Terms</a>
+            </div>
+        </div>
+    </footer>
 
-               <!-- Enterprise Plan -->
-               <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 card-hover">
-                   <div class="text-center">
-                       <h3 class="text-xl font-semibold text-gray-900 mb-2">Enterprise</h3>
-                       <div class="text-4xl font-bold text-gray-900 mb-1">$2,000+</div>
-                       <p class="text-gray-500 mb-6">per month</p>
-                       <div class="bg-orange-50 p-4 rounded-lg mb-6">
-                           <div class="text-xl font-bold text-orange-600">Custom</div>
-                           <div class="text-sm text-orange-700">Volume & features</div>
-                       </div>
-                       <p class="text-gray-600 mb-6 font-medium">Compliance-heavy industries</p>
-                       <ul class="text-left space-y-3 mb-8">
-                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Unlimited API calls</li>
-                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>99.9% uptime SLA</li>
-                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Dedicated success manager</li>
-                           <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Custom compliance features</li>
-                       </ul>
-                       <button class="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition">
-                           Contact Sales
-                       </button>
-                   </div>
-               </div>
-           </div>
-           <div class="text-center mt-8">
-               <p class="text-gray-600"><em>All plans include real-time protection and audit trail documentation.</em></p>
-           </div>
-       </div>
-   </section>
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-8 max-w-md mx-4">
+            <div class="text-center">
+                <div class="text-6xl mb-4">🎉</div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Welcome to GuardLight!</h3>
+                <p class="text-gray-600 mb-6">You're on the waitlist! We'll notify you as soon as early access opens.</p>
+                <div class="space-y-3 mb-6">
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-green-500">✓</span>
+                        <span class="text-sm text-gray-600">50% off locked in</span>
+                    </div>
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-green-500">✓</span>
+                        <span class="text-sm text-gray-600">Early access priority</span>
+                    </div>
+                </div>
+                <button onclick="closeModal()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                    Got it!
+                </button>
+                <div class="mt-4 pt-4 border-t">
+                    <p class="text-sm text-gray-500 mb-3">Share with your team:</p>
+                    <div class="flex space-x-2">
+                        <a href="https://linkedin.com/sharing/share-offsite/?url=https://guardlight.ai" target="_blank"
+                           class="flex-1 bg-blue-700 text-white py-2 px-4 rounded text-sm hover:bg-blue-800 transition">
+                            LinkedIn
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?text=Just joined the GuardLight waitlist - AI safety platform that prevents bias and toxicity in real-time&url=https://guardlight.ai" target="_blank"
+                           class="flex-1 bg-blue-400 text-white py-2 px-4 rounded text-sm hover:bg-blue-500 transition">
+                            Twitter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-   <!-- Social Proof -->
-   <section class="py-16 bg-white">
-       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div class="text-center mb-16">
-               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Trusted by Companies That Can't Afford AI Risk</h2>
-           </div>
-           <div class="bg-gray-50 rounded-2xl p-8 mb-12">
-               <blockquote class="text-xl italic text-gray-700 text-center mb-6">
-                   "GuardLight gives our legal team the confidence to approve AI features. The compliance reporting alone saves us weeks of work."
-               </blockquote>
-               <p class="text-center text-gray-600 font-semibold">— Chief Legal Officer, Fortune 500 Financial Services</p>
-           </div>
-           <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-               <div class="flex flex-col items-center">
-                   <span class="text-2xl mb-2">⭐</span>
-                   <p class="font-semibold text-gray-900">SOC 2 Type II</p>
-                   <p class="text-sm text-gray-600">Certified</p>
-               </div>
-               <div class="flex flex-col items-center">
-                   <span class="text-2xl mb-2">⭐</span>
-                   <p class="font-semibold text-gray-900">GDPR</p>
-                   <p class="text-sm text-gray-600">Compliant</p>
-               </div>
-               <div class="flex flex-col items-center">
-                   <span class="text-2xl mb-2">⭐</span>
-                   <p class="font-semibold text-gray-900">99.9%</p>
-                   <p class="text-sm text-gray-600">Uptime</p>
-               </div>
-               <div class="flex flex-col items-center">
-                   <span class="text-2xl mb-2">⭐</span>
-                   <p class="font-semibold text-gray-900">Sub-50ms</p>
-                   <p class="text-sm text-gray-600">Response Time</p>
-               </div>
-           </div>
-       </div>
-   </section>
+    <script>
+        // Waitlist counter animation
+        let currentCount = 1247;
+        function updateCounter() {
+            if (Math.random() < 0.3) { // 30% chance to increment
+                currentCount += Math.floor(Math.random() * 3) + 1;
+                document.getElementById('waitlist-counter').textContent = currentCount.toLocaleString();
+                document.getElementById('bottom-counter').textContent = currentCount.toLocaleString();
+            }
+        }
+        setInterval(updateCounter, 15000); // Update every 15 seconds
 
-   <!-- CTA Section -->
-   <section id="trial" class="py-20 gradient-bg text-white">
-       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-           <h2 class="text-3xl md:text-4xl font-bold mb-6">Get Protected in Under 24 Hours</h2>
-           <p class="text-xl mb-8 text-blue-100">
-               Ready to eliminate AI risk from your organization? Our team will have you protected and compliant within one business day.
-           </p>
-           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-               <a href="#" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition">
-                   Start Free 14-Day Trial →
-               </a>
-           </div>
-           <p class="text-blue-200 mb-8">No credit card required. Full access to enterprise features.</p>
-           <p class="text-lg">
-               <strong>Questions?</strong> 
-               <a href="mailto:demo@guardlight.ai" class="underline hover:text-yellow-300">Schedule a 15-minute demo</a> 
-               with our AI safety experts.
-           </p>
-       </div>
-   </section>
+        // Form submission
+        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '⏳ Joining...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Increment counter
+                currentCount++;
+                document.getElementById('waitlist-counter').textContent = currentCount.toLocaleString();
+                document.getElementById('bottom-counter').textContent = currentCount.toLocaleString();
+                
+                // Show success modal
+                document.getElementById('success-modal').classList.remove('hidden');
+                document.getElementById('success-modal').classList.add('flex');
+                
+                // Reset form
+                document.getElementById('waitlist-form').reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
 
-   <!-- Footer -->
-   <footer class="bg-gray-900 text-white py-12">
-       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div class="grid md:grid-cols-4 gap-8">
-               <div>
-                   <div class="flex items-center mb-4">
-                       <span class="text-2xl font-bold">GuardLight</span>
-                       <span class="ml-2 px-2 py-1 bg-blue-600 text-blue-100 text-xs font-medium rounded">AI Safety</span>
-                   </div>
-                   <p class="text-gray-400">Protecting businesses from AI risk with real-time guardrails and compliance monitoring.</p>
-               </div>
-               <div>
-                   <h4 class="font-semibold mb-4">Product</h4>
-                   <ul class="space-y-2 text-gray-400">
-                       <li><a href="#" class="hover:text-white">Features</a></li>
-                       <li><a href="#" class="hover:text-white">API Docs</a></li>
-                       <li><a href="#" class="hover:text-white">Integrations</a></li>
-                       <li><a href="#" class="hover:text-white">Status</a></li>
-                   </ul>
-               </div>
-               <div>
-                   <h4 class="font-semibold mb-4">Company</h4>
-                   <ul class="space-y-2 text-gray-400">
-                       <li><a href="#" class="hover:text-white">About</a></li>
-                       <li><a href="#" class="hover:text-white">Blog</a></li>
-                       <li><a href="#" class="hover:text-white">Careers</a></li>
-                       <li><a href="#" class="hover:text-white">Contact</a></li>
-                   </ul>
-               </div>
-               <div>
-                   <h4 class="font-semibold mb-4">Legal</h4>
-                   <ul class="space-y-2 text-gray-400">
-                       <li><a href="#" class="hover:text-white">Privacy</a></li>
-                       <li><a href="#" class="hover:text-white">Terms</a></li>
-                       <li><a href="#" class="hover:text-white">Security</a></li>
-                       <li><a href="#" class="hover:text-white">Compliance</a></li>
-                   </ul>
-               </div>
-           </div>
-           <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-               <p>&copy; 2025 GuardLight. All rights reserved. | GuardLight is trusted by legal, compliance, and AI teams at companies that deploy AI at scale.</p>
-           </div>
-       </div>
-   </footer>
+        function closeModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+            document.getElementById('success-modal').classList.remove('flex');
+        }
+
+        // Close modal on outside click
+        document.getElementById('success-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
-
